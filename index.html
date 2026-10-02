@@ -1,0 +1,1876 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Study handbook for the SAP Certified - Data Analyst - SAP Analytics Cloud (C_SAC) exam: ecosystem map, full syllabus, free video sources, 70 practice questions with worked answers, notes from the SAP UCC Magdeburg workshop and the Global Bike hands-on track.">
+<title>SAC Certification Handbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+
+<style>
+:root{
+  --paper:#F5F5F1; --surface:#FFFFFF; --surface-2:#EBEBE4;
+  --ink:#16211F; --ink-2:#55625E; --ink-3:#8B948F;
+  --line:#DCDCD3; --line-strong:#C3C4B9;
+  --accent:#0D6B63; --accent-wash:#E4EFEB;
+  --warn:#8F4F16; --warn-wash:#F6EADC;
+  --ok:#2C6B3C; --ok-wash:#E4EFE4;
+  --f-display:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --f-body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --wrap:1120px; --prose:70ch;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F1817; --surface:#16221F; --surface-2:#1E2C28;
+    --ink:#E9E9E1; --ink-2:#9CA9A4; --ink-3:#6B7873;
+    --line:#293633; --line-strong:#3A4844;
+    --accent:#57BCAB; --accent-wash:#13302B;
+    --warn:#DFA054; --warn-wash:#2D2415;
+    --ok:#6FBE7E; --ok-wash:#172C1C;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F1817; --surface:#16221F; --surface-2:#1E2C28;
+  --ink:#E9E9E1; --ink-2:#9CA9A4; --ink-3:#6B7873;
+  --line:#293633; --line-strong:#3A4844;
+  --accent:#57BCAB; --accent-wash:#13302B;
+  --warn:#DFA054; --warn-wash:#2D2415;
+  --ok:#6FBE7E; --ok-wash:#172C1C;
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding-inline:24px}
+@media (max-width:640px){.wrap{padding-inline:18px}}
+h1,h2,h3,h4,h5{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.16;letter-spacing:-.012em}
+p{margin:0}
+a{color:var(--accent);text-underline-offset:3px;text-decoration-thickness:1px}
+code,.mono{font-family:var(--f-mono);font-size:.86em}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+.eyebrow{font-family:var(--f-display);font-size:11.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3)}
+
+/* masthead */
+.masthead{padding-block:40px 22px}
+.mast-row{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:baseline;justify-content:space-between;margin-bottom:16px}
+.chip-code{font-family:var(--f-mono);font-size:12px;font-weight:500;padding:3px 8px;border-radius:4px;background:var(--accent-wash);color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 22%,transparent)}
+h1{font-size:clamp(34px,6vw,54px);font-weight:700;letter-spacing:-.03em;margin-bottom:14px}
+.standfirst{font-size:clamp(17px,2.2vw,19.5px);color:var(--ink-2);max-width:64ch}
+.standfirst strong{color:var(--ink);font-weight:600}
+
+/* tabs */
+.tabbar{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--line);margin-top:26px}
+.tabbar-inner{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.tabbar-inner::-webkit-scrollbar{display:none}
+.tab{
+  font-family:var(--f-display);font-size:14px;font-weight:500;
+  background:none;border:0;border-bottom:2px solid transparent;
+  color:var(--ink-3);padding:14px 16px;cursor:pointer;white-space:nowrap;
+  display:flex;align-items:center;gap:8px;
+}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.tab .tnum{font-family:var(--f-mono);font-size:11px;color:var(--ink-3);opacity:.8}
+.tab[aria-selected="true"] .tnum{color:var(--accent)}
+
+.page{padding-block:42px 70px}
+.page-head{margin-bottom:32px;max-width:var(--prose)}
+.page-head h2{font-size:clamp(25px,3.6vw,34px);font-weight:600;margin-top:8px}
+.page-head .lede{margin-top:12px;color:var(--ink-2)}
+
+h3.sec{font-size:clamp(19px,2.6vw,23px);font-weight:600;margin-top:44px;margin-bottom:8px;padding-top:22px;border-top:1px solid var(--line)}
+h3.sec:first-of-type{border-top:0;padding-top:0;margin-top:0}
+h3.sec + .sub{color:var(--ink-2);max-width:var(--prose);margin-bottom:20px;font-size:16.5px}
+
+/* cards / specs */
+.spec{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px 26px;margin-block:18px}
+.spec div{display:flex;flex-direction:column;gap:3px;padding-left:13px;border-left:2px solid var(--accent)}
+.spec .k{font-family:var(--f-display);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.spec .v{font-family:var(--f-display);font-size:16.5px;font-weight:600}
+.spec .v em{font-style:normal;font-family:var(--f-body);font-weight:400;font-size:14.5px;color:var(--ink-2);display:block;margin-top:2px;line-height:1.45}
+
+.callout{border-left:3px solid var(--warn);background:var(--warn-wash);padding:17px 19px;border-radius:0 7px 7px 0;max-width:var(--prose);display:flex;flex-direction:column;gap:8px;margin-block:20px}
+.callout.is-good{border-left-color:var(--ok);background:var(--ok-wash)}
+.callout .tag{font-family:var(--f-display);font-size:11.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--warn)}
+.callout.is-good .tag{color:var(--ok)}
+.callout p{font-size:16px}
+
+/* week plan */
+.weeks{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:16px;margin-top:8px}
+.wk{background:var(--surface);border:1px solid var(--line);border-top:2px solid var(--accent);border-radius:0 0 7px 7px;padding:18px}
+.wk .wn{font-family:var(--f-mono);font-size:11.5px;color:var(--accent);margin-bottom:7px}
+.wk h4{font-family:var(--f-display);font-size:16px;font-weight:600;margin-bottom:8px}
+.wk ul{margin:0;padding-left:17px;font-size:15px;color:var(--ink-2);line-height:1.55}
+.wk li{margin-bottom:4px}
+.wk li b{color:var(--ink);font-family:var(--f-display);font-weight:600;font-size:.94em}
+
+/* figures */
+figure{margin:24px 0 0}
+figure svg{display:block;width:100%;max-width:100%;height:auto;color:var(--ink)}
+figcaption{margin-top:12px;font-size:15px;color:var(--ink-2);max-width:var(--prose)}
+.figbox{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:22px 20px;overflow-x:auto}
+
+/* branch map */
+.branches{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:8px}
+.branch{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:18px 19px}
+.branch > .bh{display:flex;align-items:baseline;gap:9px;margin-bottom:4px}
+.branch .bn{font-family:var(--f-mono);font-size:11px;color:var(--accent)}
+.branch h4{font-family:var(--f-display);font-size:17px;font-weight:600}
+.branch .bd{font-size:15px;color:var(--ink-2);margin-bottom:13px;line-height:1.5}
+.twigs{display:flex;flex-wrap:wrap;gap:6px}
+.twig{font-family:var(--f-display);font-size:12.5px;padding:4px 9px;border-radius:5px;background:var(--surface-2);color:var(--ink-2);border:1px solid var(--line)}
+.twig.key{background:var(--accent-wash);color:var(--accent);border-color:color-mix(in srgb,var(--accent) 24%,transparent);font-weight:600}
+
+/* tables */
+.tbl-scroll{overflow-x:auto;margin-block:16px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:580px;font-size:15.5px}
+th,td{text-align:left;padding:12px 15px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{font-family:var(--f-display);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);background:var(--surface-2)}
+td:first-child{font-family:var(--f-display);font-weight:600;font-size:15px}
+
+/* syllabus areas */
+.area{background:var(--surface);border:1px solid var(--line);border-radius:9px;margin-bottom:16px;overflow:hidden}
+.area-h{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;padding:20px 22px;border-bottom:1px solid var(--line);background:var(--surface-2)}
+.area-h .an{font-family:var(--f-display);font-weight:700;font-size:13px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:var(--surface);flex:none;font-variant-numeric:tabular-nums}
+.area-h h4{font-family:var(--f-display);font-size:18px;font-weight:600;margin-bottom:4px}
+.area-h p{font-size:15px;color:var(--ink-2);line-height:1.5}
+.area-b{padding:20px 22px}
+.area-b h5{font-family:var(--f-display);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:9px;margin-top:22px}
+.area-b h5:first-child{margin-top:0}
+.deflist{display:flex;flex-direction:column;gap:9px;font-size:16px}
+.deflist > div{display:grid;grid-template-columns:minmax(140px,190px) 1fr;gap:14px}
+.deflist dt,.deflist .t{font-family:var(--f-display);font-weight:600;font-size:15px}
+.deflist .x{color:var(--ink-2);font-size:15.5px;line-height:1.5}
+@media (max-width:620px){.deflist > div{grid-template-columns:1fr;gap:2px}}
+.cando{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
+.cando li{display:grid;grid-template-columns:auto 1fr;gap:10px;font-size:15.5px;color:var(--ink-2);line-height:1.5}
+.cando li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:9px}
+.trap{margin-top:20px;border:1px dashed var(--line-strong);border-radius:7px;padding:13px 15px;font-size:15px;color:var(--ink-2);background:var(--paper)}
+.trap b{font-family:var(--f-display);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--warn);display:block;margin-bottom:4px}
+
+/* videos */
+.vids{display:flex;flex-direction:column;gap:14px;margin-top:8px}
+.vid{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:18px 20px}
+.vid h4{font-family:var(--f-display);font-size:16.5px;font-weight:600;margin-bottom:3px}
+.vid h4 a{text-decoration:none}
+.vid h4 a:hover{text-decoration:underline}
+.vid .by{font-family:var(--f-mono);font-size:12px;color:var(--ink-3);margin-bottom:8px}
+.vid p{font-size:15px;color:var(--ink-2);line-height:1.5}
+.vid .meta{display:flex;flex-direction:column;align-items:flex-end;gap:6px;text-align:right}
+.pill{font-family:var(--f-display);font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:4px 9px;border-radius:5px;white-space:nowrap}
+.pill.official{background:var(--accent-wash);color:var(--accent)}
+.pill.community{background:var(--surface-2);color:var(--ink-2)}
+.pill.count{font-family:var(--f-mono);font-size:11.5px;letter-spacing:0;text-transform:none;color:var(--ink-3);padding:0}
+@media (max-width:600px){.vid{grid-template-columns:1fr}.vid .meta{flex-direction:row;align-items:center;text-align:left}}
+
+/* question bank */
+.qtools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:22px;padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:8px;position:sticky;top:49px;z-index:10}
+.qtools .lbl{font-family:var(--f-display);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.fchip{font-family:var(--f-display);font-size:12.5px;font-weight:500;padding:5px 11px;border-radius:5px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink-2);cursor:pointer}
+.fchip:hover{color:var(--ink)}
+.fchip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface);font-weight:600}
+.qcount{font-family:var(--f-mono);font-size:12.5px;color:var(--ink-3);margin-left:auto;font-variant-numeric:tabular-nums}
+
+.q{background:var(--surface);border:1px solid var(--line);border-radius:9px;margin-bottom:12px;overflow:hidden}
+.q > summary{
+  list-style:none;cursor:pointer;padding:17px 20px;
+  display:grid;grid-template-columns:auto 1fr auto;gap:13px;align-items:start;
+}
+.q > summary::-webkit-details-marker{display:none}
+.q > summary:hover{background:var(--surface-2)}
+.qn{font-family:var(--f-mono);font-size:12px;color:var(--ink-3);margin-top:3px;font-variant-numeric:tabular-nums}
+.qtext{font-size:16.5px;line-height:1.5}
+.qtag{font-family:var(--f-display);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 7px;border-radius:4px;background:var(--surface-2);color:var(--ink-3);white-space:nowrap;margin-top:3px}
+.qtag.scen{background:var(--warn-wash);color:var(--warn)}
+.opts{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:4px}
+.opts li{font-size:15.5px;color:var(--ink-2);display:grid;grid-template-columns:22px 1fr;gap:6px}
+.opts li span{font-family:var(--f-mono);font-size:12.5px;color:var(--ink-3);margin-top:2px}
+.ans{padding:0 20px 20px 20px;border-top:1px solid var(--line);margin-top:0;padding-top:16px;background:var(--paper)}
+.ans .correct{font-family:var(--f-display);font-size:15.5px;font-weight:600;color:var(--ok);margin-bottom:7px;display:flex;gap:8px;align-items:baseline}
+.ans .why{font-size:15.5px;color:var(--ink-2);line-height:1.55}
+.ans .why + .why{margin-top:8px}
+.ans .why b{color:var(--ink);font-family:var(--f-display);font-weight:600;font-size:.95em}
+@media (max-width:560px){.q > summary{grid-template-columns:auto 1fr;gap:10px}.qtags{grid-column:2;justify-content:flex-start;margin-top:6px}}
+
+footer{padding-block:34px 60px;border-top:1px solid var(--line);color:var(--ink-3);font-size:14.5px;max-width:var(--prose)}
+footer .srcs{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--f-display);font-size:13px}
+footer a{color:var(--ink-2)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ---- added 2 Oct 2026: workshop + Global Bike lab + uploads link ---- */
+.tab-link{text-decoration:none}
+.tab-link .ext{font-size:11px;opacity:.7}
+.qtags{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end;margin-top:3px}
+.qtags .qtag{margin-top:0}
+.qtag.ucc{background:var(--accent-wash);color:var(--accent)}
+.whatsnew{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-block:4px 8px}
+.whatsnew a{display:block;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:0 7px 7px 0;padding:14px 16px}
+.whatsnew a:hover{border-color:var(--accent)}
+.whatsnew .wn-k{font-family:var(--f-mono);font-size:11.5px;color:var(--accent);margin-bottom:5px}
+.whatsnew h4{font-family:var(--f-display);font-size:15.5px;font-weight:600;margin-bottom:5px}
+.whatsnew p{font-size:14.5px;color:var(--ink-2);line-height:1.5}
+.track{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:16px 18px 10px;margin-top:6px}
+.track-h{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;margin-bottom:10px}
+.track-h .tt{font-family:var(--f-mono);font-size:12px;color:var(--ink-3);white-space:nowrap}
+.track-h .tbar{height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden;min-width:60px}
+.track-h .tfill{display:block;height:100%;background:var(--accent);width:0;transition:width .25s ease}
+.track-h .tpct{font-family:var(--f-mono);font-size:12px;color:var(--accent);font-variant-numeric:tabular-nums;min-width:3.2em;text-align:right}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.steps li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;padding:9px 0;border-top:1px solid var(--line);font-size:15.5px;line-height:1.5;color:var(--ink-2)}
+.steps li:first-child{border-top:0}
+.steps input{margin:6px 0 0;width:17px;height:17px;accent-color:var(--accent);cursor:pointer;flex:none}
+.steps label{cursor:pointer;min-width:0}
+.steps label b{font-family:var(--f-display);font-weight:600;color:var(--ink);font-size:.95em}
+.steps input:checked + label{color:var(--ink-3)}
+.steps input:checked + label b{color:var(--ink-3);text-decoration:line-through;text-decoration-thickness:1px}
+.steps .min{font-family:var(--f-mono);font-size:11.5px;color:var(--ink-3);white-space:nowrap}
+.steps .xref{font-family:var(--f-display);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:var(--accent-wash);padding:1px 6px;border-radius:4px;white-space:nowrap;vertical-align:middle}
+.steps code{background:var(--surface-2);padding:0 5px;border-radius:4px}
+@media (max-width:560px){.track-h{grid-template-columns:1fr auto}.track-h .tbar{grid-column:1 / -1}}
+</style>
+<style>[hidden]{display:none!important}img{max-width:100%}</style>
+</head>
+<body>
+
+
+<div class="wrap">
+
+<header class="masthead">
+  <div class="mast-row">
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      <span class="eyebrow">Exam handbook</span>
+      <span class="chip-code">C_SAC &middot; 2026 format</span>
+      <span class="chip-code">Updated 2 Oct 2026</span>
+    </div>
+    <span class="eyebrow">Free study resource</span>
+  </div>
+  <h1>SAC Certification Handbook</h1>
+  <p class="standfirst">
+    Everything needed to sit <strong>SAP Certified &ndash; Data Analyst &ndash; SAP Analytics Cloud</strong> quickly:
+    how the ecosystem fits together, the full syllabus in beginner language, free video coverage,
+    70 practice questions with worked answers, and now the notes and hands-on track from the
+    <strong>SAP UCC Magdeburg workshop</strong> of 2 October 2026.
+  </p>
+</header>
+
+<nav class="tabbar" aria-label="Handbook sections">
+  <div class="tabbar-inner" role="tablist">
+    <button class="tab" role="tab" aria-selected="true" aria-controls="p-start" id="t-start"><span class="tnum">01</span> Start here</button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="p-eco" id="t-eco"><span class="tnum">02</span> Ecosystem</button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="p-syl" id="t-syl"><span class="tnum">03</span> Syllabus</button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="p-vid" id="t-vid"><span class="tnum">04</span> Videos</button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="p-qb" id="t-qb"><span class="tnum">05</span> 70 questions</button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="p-work" id="t-work"><span class="tnum">06</span> Workshop</button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="p-lab" id="t-lab"><span class="tnum">07</span> Global Bike lab</button>
+    <a class="tab tab-link" href="uploads.html"><span class="tnum">08</span> Uploads&nbsp;<span class="ext">&#8599;</span></a>
+  </div>
+</nav>
+
+<!-- ============ PAGE 1 ============ -->
+<div class="page" id="p-start" role="tabpanel" aria-labelledby="t-start">
+  <div class="page-head">
+    <span class="eyebrow">Page one</span>
+    <h2>What the exam is, and the fastest honest route to it</h2>
+    <p class="lede">Read this page once, do the four setup steps, then live on pages 3, 5 and 7.</p>
+  </div>
+
+  <h3 class="sec">New since the SAP UCC workshop, 2 October 2026</h3>
+  <div class="whatsnew">
+    <a href="#p-work" data-go="t-work"><div class="wn-k">page 6</div><h4>Workshop notes</h4><p>The BI architecture whiteboard redrawn, the component map, account-based versus key-figure models, authorisation, and how the SAP UA curriculum is meant to be taught.</p></a>
+    <a href="#p-lab" data-go="t-lab"><div class="wn-k">page 7</div><h4>Global Bike lab</h4><p>The four UCC curriculum documents as a sequenced hands-on track with a progress list: navigation, exercise, Story Builder case study, Modeler case study.</p></a>
+    <a href="#p-qb" data-go="t-qb"><div class="wn-k">page 5</div><h4>Fourteen new questions</h4><p>Filter by <em>From the workshop</em>. Seventy in total.</p></a>
+    <a href="uploads.html"><div class="wn-k">uploads</div><h4>Drop folder</h4><p>The originals: whiteboard protocol screenshots, overview slides and the four curriculum PDFs. Add anything new there and the page lists it by itself.</p></a>
+  </div>
+
+  <h3 class="sec">The exam, as it stands today</h3>
+  <p class="sub">SAP rebuilt this certification. Anything you read describing 60 multiple-choice questions,
+    three hours and a 70% cut score is the old model and will send your preparation the wrong way.</p>
+
+  <div class="spec">
+    <div><span class="k">Code</span><span class="v">C_SAC<em>Year suffix dropped &mdash; no more 2402 / 2501</em></span></div>
+    <div><span class="k">Format</span><span class="v">1 activity<em>One connected scenario-based assessment, unproctored</em></span></div>
+    <div><span class="k">Cut score</span><span class="v">60%</span></div>
+    <div><span class="k">How you sit it</span><span class="v">Roleplay or video<em>AI-guided roleplay in 30 languages, or record a video &mdash; English only</em></span></div>
+    <div><span class="k">Attempts</span><span class="v">4 maximum<em>Two are free with the student edition. Burn all four and you wait 12 months.</em></span></div>
+    <div><span class="k">Validity</span><span class="v">12 months<em>Extended each year by passing an assessment</em></span></div>
+    <div><span class="k">Level</span><span class="v">Associate</span></div>
+    <div><span class="k">Prep journey</span><span class="v">24 hr+<em>Four official courses, free, listed on page 3</em></span></div>
+  </div>
+
+  <div class="callout">
+    <span class="tag">What "one activity" actually means for you</span>
+    <p>
+      The whole blueprint rides on a single business scenario. You model, you build, you plan, and you explain
+      your reasoning as you go. Early decisions cascade &mdash; pick the wrong model type at the start and every
+      later step inherits the problem. Which is why recall-style cramming does nothing here, and why the practice
+      questions on page 5 finish with fourteen scenarios rather than more trivia.
+    </p>
+  </div>
+
+  <h3 class="sec">Four things to do before you study anything</h3>
+  <div class="tbl-scroll">
+    <table>
+      <thead><tr><th>Step</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>Create an SAP Universal ID</td><td>Your single identity across SAP Learning, the exam and the badge. Use Latin characters for your name.</td></tr>
+        <tr><td>Link two emails on different domains</td><td>A certification-conform Universal ID requires it. People discover this on exam day and lose a session to it. Your university address plus a personal one.</td></tr>
+        <tr><td>Register the free student edition</td><td><span class="mono">learning.sap.com/free-student-edition</span> &mdash; free for university faculty, not only students. Whole catalogue, practice systems, unlimited live sessions, two exam attempts.</td></tr>
+        <tr><td>Check the tenant opened</td><td>Verification lands in a business day; practice systems and certification access can take 72 hours. Log in and build one empty model to confirm.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sec">Four-week compressed schedule</h3>
+  <p class="sub">This assumes roughly 12&ndash;15 hours a week and an existing analytics background. Stretch it to six
+    weeks if planning is entirely new territory &mdash; that is the honest failure point, not story design.</p>
+
+  <div class="weeks">
+    <div class="wk">
+      <div class="wn">week 1</div>
+      <h4>Ground and orient</h4>
+      <ul>
+        <li><b>SACE11</b> Exploring SAC, all of it</li>
+        <li><b>Global Bike</b> tracks 1&ndash;2 on page 7: navigation, then edit the finished dashboard</li>
+        <li>Learn the five dimension types cold</li>
+        <li>Import versus live &mdash; understand <em>why</em>, not just what</li>
+        <li>Read page 2 of this handbook, then redraw the flow from memory</li>
+      </ul>
+    </div>
+    <div class="wk">
+      <div class="wn">week 2</div>
+      <h4>Stories and analysis</h4>
+      <ul>
+        <li><b>SACS21</b> Designing Stories</li>
+        <li><b>Global Bike</b> track 3: build the five-page dashboard (220 min), then track 4: build the model under it</li>
+        <li>Filters, linked analysis, calculations, blending</li>
+        <li>Deliberately break performance, then fix it</li>
+        <li>Questions 1&ndash;28 on page 5</li>
+      </ul>
+    </div>
+    <div class="wk">
+      <div class="wn">week 3</div>
+      <h4>Planning &mdash; the hard half</h4>
+      <ul>
+        <li><b>SACP23</b> Manual Planning</li>
+        <li>Versions until it is second nature</li>
+        <li>Data entry, spreading, rolldown</li>
+        <li>Start <b>SACP34</b>: data actions and allocations</li>
+        <li>Questions 29&ndash;40</li>
+      </ul>
+    </div>
+    <div class="wk">
+      <div class="wn">week 4</div>
+      <h4>Advanced, mock, sit it</h4>
+      <ul>
+        <li>Finish <b>SACP34</b>: multi actions, VDT, locking, validation, currency</li>
+        <li>Augmented analytics &mdash; a short topic, don't overspend</li>
+        <li>Full mock scenario, narrated out loud, timed</li>
+        <li>All 15 scenarios on page 5</li>
+        <li>Book and sit</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout is-good">
+    <span class="tag">The rehearsal that actually predicts the outcome</span>
+    <p>
+      Take a raw CSV. Model it, build a story, add a budget version, run a data action, then explain every choice
+      aloud to a colleague who will interrupt you. If you can do that without reaching for notes, you are ready.
+      If you can only recognise the right answer when you see it written down, you are not &mdash; and that gap is
+      exactly what this format was redesigned to expose.
+    </p>
+  </div>
+</div>
+
+<!-- ============ PAGE 2 ============ -->
+<div class="page" id="p-eco" role="tabpanel" aria-labelledby="t-eco" hidden>
+  <div class="page-head">
+    <span class="eyebrow">Page two</span>
+    <h2>How SAP Analytics Cloud actually fits together</h2>
+    <p class="lede">SAC is one product doing three jobs on one data layer: business intelligence, enterprise
+      planning, and predictive. Almost every exam scenario is a question about where something sits in this chain.</p>
+  </div>
+
+  <h3 class="sec">The spine: source to story</h3>
+  <p class="sub">Follow one number from a source system to a chart. Every concept you have to learn hangs off a
+    stage in this chain, and the branch you choose at stage two constrains everything after it.</p>
+
+  <figure>
+    <div class="figbox">
+      <svg viewBox="0 0 980 430" role="img" aria-label="Data flows from source systems through either a live connection or an import connection into SAC. Live connections query the source at runtime and support stories only. Import connections copy data in, allowing wrangling, modelling, planning and predictive features. Both feed stories and analytic applications, all governed by users, roles and data access control.">
+        <defs>
+          <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+          </marker>
+          <marker id="ar-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#0D6B63"/>
+          </marker>
+        </defs>
+
+        <!-- stage labels -->
+        <text x="80" y="24" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11" font-weight="700" letter-spacing="1.4" fill="currentColor" opacity=".5">SOURCES</text>
+        <text x="330" y="24" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11" font-weight="700" letter-spacing="1.4" fill="currentColor" opacity=".5">CONNECTION</text>
+        <text x="580" y="24" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11" font-weight="700" letter-spacing="1.4" fill="currentColor" opacity=".5">MODEL</text>
+        <text x="850" y="24" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11" font-weight="700" letter-spacing="1.4" fill="currentColor" opacity=".5">CONSUME</text>
+
+        <!-- sources -->
+        <rect x="14" y="48" width="132" height="40" rx="5" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".85"/>
+        <text x="80" y="73" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="currentColor">SAP HANA / BW</text>
+        <rect x="14" y="98" width="132" height="40" rx="5" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".85"/>
+        <text x="80" y="123" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="currentColor">S/4HANA</text>
+        <rect x="14" y="148" width="132" height="40" rx="5" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".85"/>
+        <text x="80" y="173" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="currentColor">Datasphere</text>
+        <rect x="14" y="228" width="132" height="40" rx="5" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".85"/>
+        <text x="80" y="253" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="currentColor">CSV / XLSX</text>
+        <rect x="14" y="278" width="132" height="40" rx="5" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".85"/>
+        <text x="80" y="303" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="currentColor">SQL / OData</text>
+        <rect x="14" y="328" width="132" height="40" rx="5" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".85"/>
+        <text x="80" y="353" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="currentColor">Cloud apps</text>
+
+        <!-- live branch -->
+        <rect x="246" y="78" width="170" height="62" rx="6" fill="none" stroke="#0D6B63" stroke-width="2"/>
+        <text x="331" y="103" text-anchor="middle" font-family="Archivo, sans-serif" font-size="14" font-weight="600" fill="#0D6B63">LIVE connection</text>
+        <text x="331" y="122" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" fill="#0D6B63" opacity=".85">data stays in the source</text>
+
+        <!-- import branch -->
+        <rect x="246" y="268" width="170" height="62" rx="6" fill="none" stroke="currentColor" stroke-width="2"/>
+        <text x="331" y="293" text-anchor="middle" font-family="Archivo, sans-serif" font-size="14" font-weight="600" fill="currentColor">IMPORT connection</text>
+        <text x="331" y="312" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" fill="currentColor" opacity=".75">a copy lands inside SAC</text>
+
+        <!-- source to connection -->
+        <path d="M148,68 L242,101" fill="none" stroke="#0D6B63" stroke-width="1.3" marker-end="url(#ar-a)"/>
+        <path d="M148,118 L242,112" fill="none" stroke="#0D6B63" stroke-width="1.3" marker-end="url(#ar-a)"/>
+        <path d="M148,168 L242,124" fill="none" stroke="#0D6B63" stroke-width="1.3" marker-end="url(#ar-a)"/>
+        <path d="M148,248 L242,288" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#ar)" opacity=".8"/>
+        <path d="M148,298 L242,299" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#ar)" opacity=".8"/>
+        <path d="M148,348 L242,310" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#ar)" opacity=".8"/>
+
+        <!-- wrangling only on import -->
+        <rect x="246" y="185" width="170" height="46" rx="6" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3" opacity=".8"/>
+        <text x="331" y="204" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="currentColor">Data wrangling</text>
+        <text x="331" y="221" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11" fill="currentColor" opacity=".65">import path only</text>
+        <path d="M331,264 L331,235" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#ar)" opacity=".8"/>
+
+        <!-- models -->
+        <rect x="490" y="78" width="180" height="62" rx="6" fill="none" stroke="#0D6B63" stroke-width="2"/>
+        <text x="580" y="103" text-anchor="middle" font-family="Archivo, sans-serif" font-size="14" font-weight="600" fill="#0D6B63">Live model</text>
+        <text x="580" y="122" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" fill="#0D6B63" opacity=".85">source security applies</text>
+
+        <rect x="490" y="185" width="180" height="62" rx="6" fill="none" stroke="currentColor" stroke-width="2"/>
+        <text x="580" y="210" text-anchor="middle" font-family="Archivo, sans-serif" font-size="14" font-weight="600" fill="currentColor">Analytic model</text>
+        <text x="580" y="229" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" fill="currentColor" opacity=".75">read &amp; analyse</text>
+
+        <rect x="490" y="285" width="180" height="72" rx="6" fill="none" stroke="currentColor" stroke-width="2"/>
+        <text x="580" y="310" text-anchor="middle" font-family="Archivo, sans-serif" font-size="14" font-weight="600" fill="currentColor">Planning model</text>
+        <text x="580" y="328" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" fill="currentColor" opacity=".75">+ Version &amp; Date</text>
+        <text x="580" y="345" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" fill="currentColor" opacity=".75">write-back enabled</text>
+
+        <path d="M420,109 L486,109" fill="none" stroke="#0D6B63" stroke-width="1.3" marker-end="url(#ar-a)"/>
+        <path d="M420,290 L486,220" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#ar)" opacity=".8"/>
+        <path d="M420,305 L486,313" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#ar)" opacity=".8"/>
+
+        <!-- consumption -->
+        <rect x="742" y="78" width="216" height="52" rx="6" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <text x="850" y="100" text-anchor="middle" font-family="Archivo, sans-serif" font-size="13.5" font-weight="600" fill="currentColor">Stories</text>
+        <text x="850" y="117" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11" fill="currentColor" opacity=".7">charts, tables, geo, input</text>
+
+        <rect x="742" y="142" width="216" height="52" rx="6" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <text x="850" y="164" text-anchor="middle" font-family="Archivo, sans-serif" font-size="13.5" font-weight="600" fill="currentColor">Analytic applications</text>
+        <text x="850" y="181" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11" fill="currentColor" opacity=".7">scripted, Analytics Designer</text>
+
+        <rect x="742" y="206" width="216" height="52" rx="6" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <text x="850" y="228" text-anchor="middle" font-family="Archivo, sans-serif" font-size="13.5" font-weight="600" fill="currentColor">Augmented analytics</text>
+        <text x="850" y="245" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11" fill="currentColor" opacity=".7">Insights, Just Ask, Predict</text>
+
+        <rect x="742" y="270" width="216" height="52" rx="6" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <text x="850" y="292" text-anchor="middle" font-family="Archivo, sans-serif" font-size="13.5" font-weight="600" fill="currentColor">Office add-in &amp; mobile</text>
+        <text x="850" y="309" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11" fill="currentColor" opacity=".7">Excel, Digital Boardroom</text>
+
+        <path d="M674,109 L738,104" fill="none" stroke="#0D6B63" stroke-width="1.3" marker-end="url(#ar-a)"/>
+        <path d="M674,216 L738,168" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#ar)" opacity=".8"/>
+        <path d="M674,216 L738,232" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#ar)" opacity=".8"/>
+        <path d="M674,321 L738,296" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#ar)" opacity=".8"/>
+
+        <!-- write-back loop -->
+        <path d="M850,326 L850,372 L580,372 L580,361" fill="none" stroke="currentColor" stroke-width="1.3" stroke-dasharray="5 3" marker-end="url(#ar)" opacity=".75"/>
+        <text x="716" y="388" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="currentColor" opacity=".7">planners write values back</text>
+
+        <!-- governance rail -->
+        <line x1="14" y1="406" x2="958" y2="406" stroke="currentColor" stroke-width="1" opacity=".3"/>
+        <text x="14" y="424" font-family="Archivo, sans-serif" font-size="11.5" fill="currentColor" opacity=".6">GOVERNANCE across every stage &mdash; users, teams, roles, data access control, sharing, calendar</text>
+      </svg>
+    </div>
+    <figcaption>The whole product on one line. The teal path is live; the plain path is import. Note what the
+      dashed box says: wrangling only exists on the import path, which is the single most consequential
+      consequence of that first branch.</figcaption>
+  </figure>
+
+  <h3 class="sec">The one decision everything hinges on</h3>
+  <p class="sub">If you only truly understand one thing before the exam, make it this. Scenario prompts almost always
+    hide a live-versus-import decision inside a business constraint.</p>
+
+  <figure>
+    <div class="figbox">
+      <svg viewBox="0 0 900 300" role="img" aria-label="Comparison of live and import connections. With live, the corporate network boundary is never crossed by data, the source runs the query, and transformation, model calculations and planning write-back are unavailable. With import, data crosses the boundary into SAC storage, enabling wrangling, model calculations, blending of non-SAP sources and planning, at the cost of freshness.">
+        <defs>
+          <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+          </marker>
+        </defs>
+
+        <text x="18" y="20" font-family="Archivo, sans-serif" font-size="13" font-weight="700" fill="#0D6B63">LIVE</text>
+        <rect x="18" y="34" width="150" height="58" rx="5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+        <text x="93" y="60" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="currentColor">Source system</text>
+        <text x="93" y="78" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11" fill="currentColor" opacity=".7">holds all the data</text>
+
+        <line x1="212" y1="16" x2="212" y2="118" stroke="currentColor" stroke-width="1.4" stroke-dasharray="6 4" opacity=".55"/>
+        <text x="212" y="134" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="currentColor" opacity=".6">network boundary</text>
+
+        <rect x="256" y="34" width="150" height="58" rx="5" fill="none" stroke="#0D6B63" stroke-width="1.8"/>
+        <text x="331" y="60" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="#0D6B63">SAC story</text>
+        <text x="331" y="78" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11" fill="#0D6B63" opacity=".8">holds no data</text>
+
+        <path d="M252,52 L172,52" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#ar2)"/>
+        <text x="212" y="46" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="currentColor" opacity=".75">query</text>
+        <path d="M172,76 L252,76" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#ar2)"/>
+        <text x="212" y="94" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="currentColor" opacity=".75">result only</text>
+
+        <text x="440" y="46" font-family="Archivo, sans-serif" font-size="12" fill="currentColor" opacity=".8">&#10007; no data wrangling</text>
+        <text x="440" y="66" font-family="Archivo, sans-serif" font-size="12" fill="currentColor" opacity=".8">&#10007; no model-level calculations</text>
+        <text x="440" y="86" font-family="Archivo, sans-serif" font-size="12" fill="currentColor" opacity=".8">&#10007; SAP sources only</text>
+        <text x="440" y="106" font-family="Archivo, sans-serif" font-size="12" fill="#0D6B63">&#10003; real time, nothing replicated</text>
+        <text x="440" y="126" font-family="Archivo, sans-serif" font-size="12" fill="#0D6B63">&#10003; source system security applies</text>
+
+        <line x1="18" y1="160" x2="882" y2="160" stroke="currentColor" stroke-width="1" opacity=".25"/>
+
+        <text x="18" y="192" font-family="Archivo, sans-serif" font-size="13" font-weight="700" fill="currentColor">IMPORT</text>
+        <rect x="18" y="206" width="150" height="58" rx="5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+        <text x="93" y="232" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="currentColor">Source system</text>
+        <text x="93" y="250" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11" fill="currentColor" opacity=".7">SAP or non-SAP</text>
+
+        <line x1="212" y1="188" x2="212" y2="290" stroke="currentColor" stroke-width="1.4" stroke-dasharray="6 4" opacity=".55"/>
+
+        <rect x="256" y="206" width="150" height="58" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <text x="331" y="232" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12.5" fill="currentColor">SAC model</text>
+        <text x="331" y="250" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11" fill="currentColor" opacity=".7">stores the copy</text>
+
+        <path d="M172,235 L252,235" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#ar2)"/>
+        <text x="212" y="228" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="currentColor" opacity=".75">copy</text>
+        <text x="212" y="278" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="currentColor" opacity=".6">on a schedule</text>
+
+        <text x="440" y="212" font-family="Archivo, sans-serif" font-size="12" fill="#0D6B63">&#10003; wrangling and transformation</text>
+        <text x="440" y="232" font-family="Archivo, sans-serif" font-size="12" fill="#0D6B63">&#10003; model-level calculations</text>
+        <text x="440" y="252" font-family="Archivo, sans-serif" font-size="12" fill="#0D6B63">&#10003; blend SAP with non-SAP</text>
+        <text x="440" y="272" font-family="Archivo, sans-serif" font-size="12" fill="#0D6B63">&#10003; planning and write-back</text>
+        <text x="440" y="292" font-family="Archivo, sans-serif" font-size="12" fill="currentColor" opacity=".8">&#10007; only as fresh as the last refresh</text>
+      </svg>
+    </div>
+    <figcaption>Read the constraint in the prompt, not the preference. "Real time" and "data must not leave our
+      network" point to live. "Combine these sources", "clean this data" and anything involving planning point to
+      import &mdash; planning write-back is impossible on a live model.</figcaption>
+  </figure>
+
+  <h3 class="sec">The vocabulary, by branch</h3>
+  <p class="sub">Six branches cover essentially everything the exam can ask about. Highlighted terms are the ones
+    that carry the most weight &mdash; if a term here means nothing to you, that is your revision list.</p>
+
+  <div class="branches">
+    <div class="branch">
+      <div class="bh"><span class="bn">01</span><h4>Connect</h4></div>
+      <p class="bd">Getting data within reach. The architecture decisions live here, and they are irreversible in
+        practice &mdash; you rebuild rather than switch.</p>
+      <div class="twigs">
+        <span class="twig key">Live connection</span><span class="twig key">Import connection</span>
+        <span class="twig">Direct / CORS</span><span class="twig">Tunnel</span>
+        <span class="twig key">Cloud Connector</span><span class="twig key">SAC agent</span>
+        <span class="twig">HANA</span><span class="twig">BW / BW4</span><span class="twig">S/4HANA</span>
+        <span class="twig">Datasphere</span><span class="twig">BPC</span><span class="twig">Universe</span>
+        <span class="twig">OData</span><span class="twig">SQL databases</span><span class="twig">File server</span>
+        <span class="twig">Scheduled refresh</span>
+      </div>
+    </div>
+
+    <div class="branch">
+      <div class="bh"><span class="bn">02</span><h4>Model</h4></div>
+      <p class="bd">Turning data into something with meaning. Strict typing is what separates SAC from a loose
+        star schema, and the exam leans on it hard.</p>
+      <div class="twigs">
+        <span class="twig key">Dataset vs model</span><span class="twig key">Analytic model</span>
+        <span class="twig key">Planning model</span><span class="twig">New vs classic account model</span>
+        <span class="twig key">Account</span><span class="twig key">Version</span><span class="twig key">Date</span>
+        <span class="twig key">Organization</span><span class="twig key">Generic</span>
+        <span class="twig">Measures</span><span class="twig">Properties</span><span class="twig">Hierarchies</span>
+        <span class="twig">Level-based / parent-child</span><span class="twig">Currency</span>
+        <span class="twig">Data wrangling</span><span class="twig">Data Access Control</span>
+      </div>
+    </div>
+
+    <div class="branch">
+      <div class="bh"><span class="bn">03</span><h4>Analyse</h4></div>
+      <p class="bd">The BI half, and the part you will find most familiar. Everything here has a rough Power BI or
+        Tableau equivalent.</p>
+      <div class="twigs">
+        <span class="twig key">Story</span><span class="twig">Responsive / canvas / grid page</span>
+        <span class="twig">Widgets</span><span class="twig">Charts</span><span class="twig">Tables</span>
+        <span class="twig">Geo map</span><span class="twig key">Story &amp; page filters</span>
+        <span class="twig key">Linked analysis</span><span class="twig">Input controls</span>
+        <span class="twig key">Calculated measure</span><span class="twig">Restricted measure</span>
+        <span class="twig">Cross calculation</span><span class="twig key">Blending</span>
+        <span class="twig">Conditional formatting</span><span class="twig">Drill</span>
+        <span class="twig">Analytics Designer</span>
+      </div>
+    </div>
+
+    <div class="branch">
+      <div class="bh"><span class="bn">04</span><h4>Plan</h4></div>
+      <p class="bd">Roughly half the certification, and the half with no equivalent in the tools you already know.
+        Spend your time here.</p>
+      <div class="twigs">
+        <span class="twig key">Public vs private version</span>
+        <span class="twig key">Actual / Budget / Planning / Forecast / Rolling Forecast</span>
+        <span class="twig">Publish &amp; revert</span><span class="twig">Data entry</span>
+        <span class="twig">Spreading &amp; distribution</span><span class="twig">Rolldown</span>
+        <span class="twig key">Data action</span><span class="twig key">Advanced formulas</span>
+        <span class="twig key">Allocation</span><span class="twig">Cross-model copy</span>
+        <span class="twig key">Multi action</span><span class="twig key">Value driver tree</span>
+        <span class="twig key">Data locking</span><span class="twig key">Validation rules</span>
+        <span class="twig">Currency conversion table</span><span class="twig">Calendar</span>
+        <span class="twig">Seamless planning</span>
+      </div>
+    </div>
+
+    <div class="branch">
+      <div class="bh"><span class="bn">05</span><h4>Augment</h4></div>
+      <p class="bd">The AI layer. A small topic that people over-study &mdash; know what each feature is for and
+        when you would reach for it, and move on.</p>
+      <div class="twigs">
+        <span class="twig key">Smart Insights</span><span class="twig key">Just Ask</span>
+        <span class="twig key">Smart Predict</span><span class="twig">Classification</span>
+        <span class="twig">Regression</span><span class="twig">Time series</span>
+        <span class="twig">Smart Discovery</span><span class="twig">Smart Grouping</span>
+        <span class="twig">Analytics Compass</span><span class="twig">Joule</span>
+      </div>
+    </div>
+
+    <div class="branch">
+      <div class="bh"><span class="bn">06</span><h4>Govern &amp; share</h4></div>
+      <p class="bd">Who sees what, and how work gets out of SAC. As a trainer this is also how you will run a
+        classroom tenant.</p>
+      <div class="twigs">
+        <span class="twig">Users</span><span class="twig">Teams</span><span class="twig key">Roles</span>
+        <span class="twig key">Data Access Control</span><span class="twig">Sharing</span>
+        <span class="twig">Catalog</span><span class="twig">Content Network</span>
+        <span class="twig">Scheduled publication</span><span class="twig">Comments</span>
+        <span class="twig">Discussions</span><span class="twig">Digital Boardroom</span>
+        <span class="twig">Office add-in</span><span class="twig">Mobile</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PAGE 3 ============ -->
+<div class="page" id="p-syl" role="tabpanel" aria-labelledby="t-syl" hidden>
+  <div class="page-head">
+    <span class="eyebrow">Page three</span>
+    <h2>The full syllabus, in plain language</h2>
+    <p class="lede">Seven blueprint areas, all folded into one scenario on exam day. SAP no longer publishes
+      per-area weightings for this format, so treat all seven as examinable and let the planning areas take
+      the extra time.</p>
+  </div>
+
+  <h3 class="sec">The four official courses that cover it</h3>
+  <div class="tbl-scroll">
+    <table>
+      <thead><tr><th>Course</th><th>Code</th><th>Hours</th><th>Covers blueprint areas</th></tr></thead>
+      <tbody>
+        <tr><td>Exploring SAP Analytics Cloud</td><td class="mono">SACE11</td><td class="mono">4 hr+</td><td>1, part of 2, 7 &mdash; and SAP names it as directly relevant to passing</td></tr>
+        <tr><td>Designing Stories in SAP Analytics Cloud</td><td class="mono">SACS21</td><td class="mono">5 hr+</td><td>3 and 4</td></tr>
+        <tr><td>Performing Manual Planning</td><td class="mono">SACP23</td><td class="mono">5 hr+</td><td>5</td></tr>
+        <tr><td>Leveraging Advanced Features for Planning</td><td class="mono">SACP34</td><td class="mono">7 hr+</td><td>6</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:15.5px;color:var(--ink-2);max-width:var(--prose);margin-top:4px">
+    Area 2 &mdash; connections and modelling &mdash; is spread thinly across the journey, which is why people
+    arrive at the exam weakest there. Give it dedicated time rather than trusting the courses to cover it.
+  </p>
+
+  <h3 class="sec">Area by area</h3>
+
+  <div class="area">
+    <div class="area-h"><span class="an">1</span><div>
+      <h4>Navigating and getting started</h4>
+      <p>Orientation. Light on marks, but everything else assumes it.</p>
+    </div></div>
+    <div class="area-b">
+      <h5>Concepts to know cold</h5>
+      <div class="deflist">
+        <div><span class="t">Dataset</span><span class="x">A prepared table of data. Flexible and quick, but it has no strict dimension typing and cannot be used for planning.</span></div>
+        <div><span class="t">Model</span><span class="x">A governed semantic layer with typed dimensions, measures and hierarchies. Everything serious is built on a model.</span></div>
+        <div><span class="t">Story</span><span class="x">The dashboard/report artefact. Built from responsive widgets. Can be analytic or planning-enabled.</span></div>
+        <div><span class="t">Analytic application</span><span class="x">A scripted, app-like alternative to a story, built in Analytics Designer. More control, more work.</span></div>
+        <div><span class="t">Files vs Catalog</span><span class="x">Files is your own workspace tree. The Catalog is the curated, published shop window for consumers.</span></div>
+        <div><span class="t">Content Network</span><span class="x">SAP-delivered and partner sample content and business content packages you can import into a tenant.</span></div>
+      </div>
+      <h5>You must be able to</h5>
+      <ul class="cando">
+        <li>Explain when a dataset is enough and when the job needs a model.</li>
+        <li>Find your way between Files, Catalog, Connections, Modeler and Stories without hunting.</li>
+        <li>Describe what a tenant contains and how a story reaches a consumer.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="area">
+    <div class="area-h"><span class="an">2</span><div>
+      <h4>Data sources, connections and modeling</h4>
+      <p>The architectural core. If a scenario goes wrong, it usually went wrong here.</p>
+    </div></div>
+    <div class="area-b">
+      <h5>Connections</h5>
+      <div class="deflist">
+        <div><span class="t">Live connection</span><span class="x">SAC queries the source at runtime; no copy is made. SAP sources only. Source-system security applies. No wrangling, no model-level calculations, no planning write-back.</span></div>
+        <div><span class="t">Import connection</span><span class="x">A copy is acquired into SAC on a schedule. SAP and non-SAP. Full transformation, modelling and planning available.</span></div>
+        <div><span class="t">Direct / CORS live</span><span class="x">Browser talks straight to the source. Fastest, keeps confidential data inside the network, supports end-to-end single sign-on. Requires CORS configuration.</span></div>
+        <div><span class="t">Tunnel live</span><span class="x">Routed via the Cloud Connector. Slower, but needs no CORS setup and exposes data to users outside the corporate network.</span></div>
+        <div><span class="t">Cloud Connector</span><span class="x">The secure bridge for reaching on-premise systems from the cloud.</span></div>
+        <div><span class="t">SAC agent</span><span class="x">Added alongside the Cloud Connector when importing from databases, universes, BW, ERP or file servers.</span></div>
+      </div>
+      <h5>Modelling</h5>
+      <div class="deflist">
+        <div><span class="t">Account</span><span class="x">Financial/measure-like members such as cost lines. One per model, mandatory in an account model, ships with a default hierarchy.</span></div>
+        <div><span class="t">Version</span><span class="x">System-generated and mandatory in planning models. Holds Actual, Budget, Planning, Forecast, Rolling Forecast. Hierarchies do not apply.</span></div>
+        <div><span class="t">Date</span><span class="x">System-generated and mandatory in planning models. Defines the model's time range and granularity &mdash; year, quarter, month, week or day. Multiple Date dimensions are allowed.</span></div>
+        <div><span class="t">Organization</span><span class="x">Cost centres, profit centres and similar. One per model. Brings Currency and Person Responsible properties automatically, supports multiple hierarchies.</span></div>
+        <div><span class="t">Generic</span><span class="x">Everything else. Unlimited instances per model, unlimited hierarchies. The flexible workhorse.</span></div>
+        <div><span class="t">Data Access Control</span><span class="x">Row-level security on the model, granting read and write per dimension member. This is how one model serves many regions.</span></div>
+      </div>
+      <h5>You must be able to</h5>
+      <ul class="cando">
+        <li>Choose live or import from a business constraint, and say what you gave up.</li>
+        <li>Name what extra infrastructure a given source needs &mdash; Cloud Connector alone, or agent as well.</li>
+        <li>Type every dimension correctly and justify each choice.</li>
+        <li>Explain why a planning model cannot be built on a live connection.</li>
+      </ul>
+      <div class="trap"><b>Where people lose marks</b>
+        Answering "live, because real time is better." Real time is a requirement, not a virtue. If the same
+        scenario also asks for cleaning, blending or planning, live is simply wrong and no amount of preference
+        rescues it.</div>
+    </div>
+  </div>
+
+  <div class="area">
+    <div class="area-h"><span class="an">3</span><div>
+      <h4>Story design and data visualization</h4>
+      <p>Building the thing people actually look at.</p>
+    </div></div>
+    <div class="area-b">
+      <h5>Concepts to know cold</h5>
+      <div class="deflist">
+        <div><span class="t">Responsive page</span><span class="x">Widgets reflow into lanes so the story works on any screen, including mobile. The default choice.</span></div>
+        <div><span class="t">Canvas page</span><span class="x">Fixed, pixel-positioned layout. Full control, no reflow. Use when print or precise composition matters.</span></div>
+        <div><span class="t">Grid page</span><span class="x">A spreadsheet-like sheet for tabular work and free-form calculation.</span></div>
+        <div><span class="t">Story filter</span><span class="x">Applies across every page in the story.</span></div>
+        <div><span class="t">Page filter</span><span class="x">Applies to one page only. Widget-level filters go narrower still.</span></div>
+        <div><span class="t">Input control</span><span class="x">A filter exposed to the reader so they can change it themselves.</span></div>
+        <div><span class="t">Linked analysis</span><span class="x">Selecting in one widget filters others. Scope can be the widget, the page, or all widgets on the same model.</span></div>
+        <div><span class="t">Conditional formatting</span><span class="x">Threshold-driven colour on measures, to encode status rather than decorate.</span></div>
+      </div>
+      <h5>You must be able to</h5>
+      <ul class="cando">
+        <li>Pick a page type from a stated delivery requirement, mobile included.</li>
+        <li>Set filters at the right scope, and say why that scope and not another.</li>
+        <li>Choose a chart type that suits the question, not the dataset shape.</li>
+        <li>Wire linked analysis so a selection propagates the way the audience expects.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="area">
+    <div class="area-h"><span class="an">4</span><div>
+      <h4>Analyzing and manipulating data in stories</h4>
+      <p>What you do to the numbers once they are on screen.</p>
+    </div></div>
+    <div class="area-b">
+      <h5>Concepts to know cold</h5>
+      <div class="deflist">
+        <div><span class="t">Calculated measure</span><span class="x">A new measure from a formula. Can be created at model level (import only) or at story level (both live and import).</span></div>
+        <div><span class="t">Restricted measure</span><span class="x">An existing measure limited to specified dimension members &mdash; revenue for one region, say.</span></div>
+        <div><span class="t">Cross calculation</span><span class="x">A calculation placed as its own dimension in a table, so several calculations sit side by side.</span></div>
+        <div><span class="t">Blending</span><span class="x">Linking two models in a story on common dimensions to analyse them together. Story-level, not a permanent join.</span></div>
+        <div><span class="t">Drill</span><span class="x">Moving through a hierarchy level by level, or across to another dimension.</span></div>
+        <div><span class="t">Variance</span><span class="x">Built-in comparison between two versions or periods, with automatic formatting.</span></div>
+      </div>
+      <h5>You must be able to</h5>
+      <ul class="cando">
+        <li>Say which calculations survive on a live model and which do not.</li>
+        <li>Blend two models and name the dimensions the blend needs.</li>
+        <li>Build a variance between Budget and Actual and read it correctly.</li>
+        <li>Diagnose a slow story and name the fix &mdash; fewer widgets, tighter filters, less blending.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="area">
+    <div class="area-h"><span class="an">5</span><div>
+      <h4>Manual planning</h4>
+      <p>Where BI people start losing ground. Nothing here maps to tools you already know.</p>
+    </div></div>
+    <div class="area-b">
+      <h5>Concepts to know cold</h5>
+      <div class="deflist">
+        <div><span class="t">Public version</span><span class="x">Visible to everyone with the right privileges. A model may have only one public Actual version.</span></div>
+        <div><span class="t">Private version</span><span class="x">Your sandbox, tied to the story, visible only to you unless shared. Auto-saves. Becomes public when published.</span></div>
+        <div><span class="t">Version categories</span><span class="x">Actual, Budget, Planning, Forecast, Rolling Forecast. Categories classify what a version is <em>for</em>.</span></div>
+        <div><span class="t">Publish</span><span class="x">Pushes private data into a public version. Cannot be undone. "Publish As" creates a new public version instead of overwriting one.</span></div>
+        <div><span class="t">Revert</span><span class="x">Discards unpublished changes and returns to the last saved state.</span></div>
+        <div><span class="t">Data entry</span><span class="x">Absolute values, or relative ones like +10% or +5000. Copy and paste works, with aggregation on paste.</span></div>
+        <div><span class="t">Rolldown</span><span class="x">Enter at an aggregate node and SAC distributes down to leaf members automatically, keeping proportions.</span></div>
+        <div><span class="t">Spreading &amp; distribution</span><span class="x">Manually push a total across members or periods by a chosen rule &mdash; evenly, by weight, or by an existing pattern.</span></div>
+        <div><span class="t">Seamless planning</span><span class="x">Planning directly on data federated from Datasphere or BW rather than a fully imported copy.</span></div>
+      </div>
+      <h5>You must be able to</h5>
+      <ul class="cando">
+        <li>Run a Budget-versus-Actual cycle end to end without prompting.</li>
+        <li>Explain to a nervous planner why their private version is safe.</li>
+        <li>Enter a number at group level and predict exactly what happens underneath.</li>
+        <li>Say what publishing does and why it cannot be reversed.</li>
+      </ul>
+      <div class="trap"><b>Where people lose marks</b>
+        Treating versions as folders. A version is a dimension member that data is stored against &mdash; which is
+        why one model can hold Actual, three Budget iterations and a Forecast at once, and why comparing them is a
+        filter rather than a join.</div>
+    </div>
+  </div>
+
+  <div class="area">
+    <div class="area-h"><span class="an">6</span><div>
+      <h4>Advanced planning features</h4>
+      <p>The heaviest course in the journey, and the strongest differentiator on exam day.</p>
+    </div></div>
+    <div class="area-b">
+      <h5>The seven data action step types</h5>
+      <div class="deflist">
+        <div><span class="t">Copy</span><span class="x">Copies data within one model by rules, filters and aggregation settings. One source member to many targets is allowed.</span></div>
+        <div><span class="t">Cross-model copy</span><span class="x">Moves data between two different planning models, mapping dimension members automatically or by hand.</span></div>
+        <div><span class="t">Allocation</span><span class="x">Distributes values across members by a driver or rule &mdash; IT costs across departments by headcount, for instance.</span></div>
+        <div><span class="t">Conversion</span><span class="x">Applies currency conversion while copying between measures.</span></div>
+        <div><span class="t">Fact deletion</span><span class="x">Removes facts, strips zeros, or zeroes values out. Needs the Maintain privilege.</span></div>
+        <div><span class="t">Embedded data action</span><span class="x">Runs another data action inside this one, with parameters. How you build reusable workflows.</span></div>
+        <div><span class="t">Advanced formulas</span><span class="x">Scripted calculation with loops and conditions, for things like carry-forward balances, depreciation and cash flow.</span></div>
+      </div>
+      <h5>The rest of area six</h5>
+      <div class="deflist">
+        <div><span class="t">Multi action</span><span class="x">Bundles several data actions <em>and</em> import steps into one runnable, schedulable sequence. A data action works inside models; a multi action orchestrates across them.</span></div>
+        <div><span class="t">Value driver tree</span><span class="x">A visual driver-based model. Change a driver, watch KPIs move across periods, then book the simulation back if you like it.</span></div>
+        <div><span class="t">Data locking</span><span class="x">Freezes a slice of data so it cannot be edited &mdash; closing a period, for example. Locks can be delegated to owners and scheduled through the Calendar.</span></div>
+        <div><span class="t">Validation rules</span><span class="x">Define which dimension member combinations are legal, blocking nonsense entries such as a product sold in a region that does not stock it.</span></div>
+        <div><span class="t">Currency conversion</span><span class="x">Needs a currency conversion table holding rates by date and category. The Organization dimension supplies the currency property.</span></div>
+        <div><span class="t">Calendar</span><span class="x">Tasks, processes, owners and due dates for the planning cycle, plus scheduling for multi actions and locks.</span></div>
+      </div>
+      <h5>You must be able to</h5>
+      <ul class="cando">
+        <li>Pick the right step type from a described business need, first time.</li>
+        <li>Say when a job needs a multi action rather than a data action.</li>
+        <li>Set up an allocation and name its driver.</li>
+        <li>Distinguish data locking from validation rules &mdash; one stops editing, the other stops nonsense.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="area">
+    <div class="area-h"><span class="an">7</span><div>
+      <h4>Augmented analytics and collaboration</h4>
+      <p>Small area. Know what each feature is for, resist the urge to go deep.</p>
+    </div></div>
+    <div class="area-b">
+      <h5>Concepts to know cold</h5>
+      <div class="deflist">
+        <div><span class="t">Smart Insights</span><span class="x">Automatic statistical explanation of a data point or variance &mdash; what is driving this number. Works on most charts, table cells and variances.</span></div>
+        <div><span class="t">Just Ask</span><span class="x">Natural-language querying, in English, German, French, Italian or Spanish. Answers come back as a table or chart. This is the current name for what older material calls Search to Insight.</span></div>
+        <div><span class="t">Smart Predict</span><span class="x">Trains predictive scenarios on your historical data. Three types: <em>classification</em> for yes/no outcomes, <em>regression</em> for a numeric value, <em>time series</em> for forecasting forward.</span></div>
+        <div><span class="t">Smart Discovery</span><span class="x">Automatically surfaces the drivers and relationships behind a target measure, as a generated story.</span></div>
+        <div><span class="t">Analytics Compass</span><span class="x">Monte Carlo simulation for estimating outcomes under uncertainty.</span></div>
+        <div><span class="t">Joule</span><span class="x">SAP's conversational assistant, reaching SAC data from other SAP products where enabled.</span></div>
+        <div><span class="t">Comments vs discussions</span><span class="x">Comments attach to a data point or cell and live with the data. Discussions are conversations about the story, alongside it.</span></div>
+      </div>
+      <h5>You must be able to</h5>
+      <ul class="cando">
+        <li>Match a business question to the right smart feature in one step.</li>
+        <li>Choose the correct Smart Predict scenario type from a described outcome.</li>
+        <li>Say where a comment lives versus where a discussion lives.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PAGE 4 ============ -->
+<div class="page" id="p-vid" role="tabpanel" aria-labelledby="t-vid" hidden>
+  <div class="page-head">
+    <span class="eyebrow">Page four</span>
+    <h2>Free video coverage of the whole product</h2>
+    <p class="lede">All verified as live in September 2026, with counts and publishers, so you know what you're
+      committing to before you press play.</p>
+  </div>
+
+  <div class="callout">
+    <span class="tag">Use these the right way round</span>
+    <p>
+      Video is for orientation &mdash; seeing where a menu lives, watching someone build an allocation once.
+      It is not where you learn this. The exam asks you to <em>do</em> things and explain them, and no amount of
+      watching produces that. Rule of thumb: for every hour of video, spend two in your own tenant rebuilding
+      what you just watched, from memory, without the video open.
+    </p>
+  </div>
+
+  <h3 class="sec">Start with the official free courses, not the videos</h3>
+  <p class="sub">The four SAP Learning courses are free, include hands-on exercises, and are the curriculum the
+    exam is built from. Videos are supplementary. If you only have time for one thing, it is these.</p>
+  <div class="vids">
+    <div class="vid">
+      <div>
+        <h4><a href="https://learning.sap.com/learning-journeys/becoming-a-certified-data-analyst-in-sap-analytics-cloud">Becoming a Certified Data Analyst in SAP Analytics Cloud</a></h4>
+        <div class="by">SAP Learning &middot; learning.sap.com</div>
+        <p>The full journey: SACE11, SACS21, SACP23 and SACP34. Free, no subscription needed to study the content,
+          with AI study guides, mind maps and podcasts built into each course. This is the source of truth.</p>
+      </div>
+      <div class="meta"><span class="pill official">Official</span><span class="pill count">4 courses &middot; 24 hr+</span></div>
+    </div>
+    <div class="vid">
+      <div>
+        <h4><a href="https://help.sap.com/docs/SAP_ANALYTICS_CLOUD/00f68c2e08b941f081002fd3691d86a7/2e581e3f3a7340ada6aa0cfa677945f9.html">Video Tutorials on the SAP Help Portal</a></h4>
+        <div class="by">SAP &middot; help.sap.com</div>
+        <p>Short official clips indexed by feature, sitting next to the documentation for the same feature.
+          The fastest way to answer "how does this one thing actually work".</p>
+      </div>
+      <div class="meta"><span class="pill official">Official</span><span class="pill count">by feature</span></div>
+    </div>
+  </div>
+
+  <h3 class="sec">Official SAP video series</h3>
+  <div class="vids">
+    <div class="vid">
+      <div>
+        <h4><a href="https://www.youtube.com/playlist?list=PLs5htBIwERYWQPhHzmjd5z6xhXUecIaat">SAP Analytics Cloud: Working with Models &mdash; Demos &amp; How-Tos</a></h4>
+        <div class="by">SAP Help and Learning</div>
+        <p>Tight official demos of the modelling layer &mdash; exactly the area most candidates arrive weakest in,
+          because the journey spreads it thinly. Watch this in week one alongside SACE11.</p>
+      </div>
+      <div class="meta"><span class="pill official">Official</span><span class="pill count">10 videos</span></div>
+    </div>
+    <div class="vid">
+      <div>
+        <h4><a href="https://www.youtube.com/playlist?list=PLpQebylHrdh45F5zp6n9v-6zbFWtt7IOt">SAP Analytics Cloud</a></h4>
+        <div class="by">SAP Community</div>
+        <p>Broad official coverage across BI, planning and the augmented features. Good for filling gaps once you
+          know what your gaps are.</p>
+      </div>
+      <div class="meta"><span class="pill official">Official</span><span class="pill count">23 videos</span></div>
+    </div>
+    <div class="vid">
+      <div>
+        <h4><a href="https://www.youtube.com/playlist?list=PLkzo92owKnVwJ02U3Ze05yhYFbTToFca5">Get Certified: SAP Analytics Cloud</a></h4>
+        <div class="by">SAP HANA Academy &middot; via SAP Community</div>
+        <p>Ten videos, about 100 minutes total, walking the topic areas one at a time &mdash; overview, security,
+          content, connections, BI, predictive, collaboration, data modelling. Excellent product coverage in a
+          single sitting, and good for revising away from a desk.</p>
+      </div>
+      <div class="meta"><span class="pill official">Official</span><span class="pill count">10 videos &middot; ~100 min</span></div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <span class="tag">Important caveat on that last one</span>
+    <p>
+      The Get Certified series was published in 2022, when this was "SAP Certified Application Associate", the
+      badge lasted five years, sample questions came from Questionmark, and you bought exam attempts as CER001
+      or CER006. <strong>All of that is obsolete.</strong> Watch it for the product tour, ignore everything it
+      says about booking, format and validity, and use page one of this handbook for those instead.
+    </p>
+  </div>
+
+  <h3 class="sec">Community series &mdash; longer, slower, more hands-on</h3>
+  <p class="sub">Independent trainers, free on YouTube. Quality varies within any of these, so treat them as a
+    buffet rather than a curriculum. All three verified live and available.</p>
+  <div class="vids">
+    <div class="vid">
+      <div>
+        <h4><a href="https://www.youtube.com/playlist?list=PLcxqFaocb9WJ8g8TZPsHQIEcSjKW9F0IE">SAP Analytics Cloud Tutorial with LIVE Data Connections</a></h4>
+        <div class="by">Anubhav Trainings</div>
+        <p>The deepest free series available, and unusually strong on live connections to HANA &mdash; the topic
+          hardest to practise on a trial tenant, since you rarely have a real source system to point at.</p>
+      </div>
+      <div class="meta"><span class="pill community">Community</span><span class="pill count">88 videos</span></div>
+    </div>
+    <div class="vid">
+      <div>
+        <h4><a href="https://www.youtube.com/playlist?list=PLlvWuqwG9LyFiDQmswTWnPx6SMxAzr4kg">SAP Analytics Cloud &mdash; theory and practical examples</a></h4>
+        <div class="by">Atul Kadlag</div>
+        <p>Paced for people starting from nothing, pairing each concept with a worked example. A reasonable
+          parallel track if the official courses move too fast.</p>
+      </div>
+      <div class="meta"><span class="pill community">Community</span><span class="pill count">48 videos</span></div>
+    </div>
+    <div class="vid">
+      <div>
+        <h4><a href="https://www.youtube.com/playlist?list=PLT8kKsb_BznmyNokAi1UPR2nafnaA1ku5">SAP Analytics Cloud &mdash; Beginner to Advanced</a></h4>
+        <div class="by">MSha Tech</div>
+        <p>A compact step-by-step path. The shortest of the three community series, which makes it the most
+          realistic to actually finish inside a four-week plan.</p>
+      </div>
+      <div class="meta"><span class="pill community">Community</span><span class="pill count">25 videos</span></div>
+    </div>
+  </div>
+
+  <h3 class="sec">What to watch, in what order, on a four-week clock</h3>
+  <div class="tbl-scroll">
+    <table>
+      <thead><tr><th>Week</th><th>Watch</th><th>Then do</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Get Certified series (all 10, one sitting) + Working with Models</td><td>SACE11, then build a model from a CSV without looking at anything</td></tr>
+        <tr><td>2</td><td>Story-design sections of any community series</td><td>SACS21, then build a three-page story and break its performance deliberately</td></tr>
+        <tr><td>3</td><td>Anubhav on live connections; planning sections of Atul Kadlag</td><td>SACP23, then run a full Budget-vs-Actual cycle yourself</td></tr>
+        <tr><td>4</td><td>Nothing new &mdash; rewatch only what you failed to rebuild</td><td>SACP34, full mock scenario narrated aloud, then sit the exam</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ============ PAGE 5 ============ -->
+<div class="page" id="p-qb" role="tabpanel" aria-labelledby="t-qb" hidden>
+  <div class="page-head">
+    <span class="eyebrow">Page five</span>
+    <h2>70 practice questions with worked answers</h2>
+    <p class="lede">Fifty-five knowledge checks to build recall of the facts, then fifteen scenarios in the shape the
+      exam actually takes. Fourteen of the seventy come straight from the SAP UCC workshop of 2 October 2026. Click any
+      question to reveal the answer and the reasoning.</p>
+  </div>
+
+  <div class="callout">
+    <span class="tag">On "questions from previous papers"</span>
+    <p>
+      These are written to match the current exam's blueprint and difficulty &mdash; they are not copies of any
+      live or past paper, and circulating dumps are both against SAP's certification agreement and, since the
+      format changed, useless. The knowledge checks below drill the facts a scenario will lean on. The fifteen
+      scenarios are the real rehearsal: read the constraint, decide, and <em>say your reasoning
+      aloud</em> before you open the answer.
+    </p>
+  </div>
+
+  <div class="qtools">
+    <span class="lbl">Filter</span>
+    <button class="fchip" data-f="all" aria-pressed="true" type="button">All</button>
+    <button class="fchip" data-f="1" aria-pressed="false" type="button">Getting started</button>
+    <button class="fchip" data-f="2" aria-pressed="false" type="button">Connections &amp; modeling</button>
+    <button class="fchip" data-f="3" aria-pressed="false" type="button">Story design</button>
+    <button class="fchip" data-f="4" aria-pressed="false" type="button">Analysis</button>
+    <button class="fchip" data-f="5" aria-pressed="false" type="button">Manual planning</button>
+    <button class="fchip" data-f="6" aria-pressed="false" type="button">Advanced planning</button>
+    <button class="fchip" data-f="7" aria-pressed="false" type="button">Augmented</button>
+    <button class="fchip" data-f="W" aria-pressed="false" type="button">From the workshop</button>
+    <button class="fchip" data-f="S" aria-pressed="false" type="button">Scenarios only</button>
+    <span class="qcount" id="qcount"></span>
+  </div>
+
+  <div id="qlist"></div>
+</div>
+
+<!-- ============ PAGE 6 : WORKSHOP ============ -->
+<div class="page" id="p-work" role="tabpanel" aria-labelledby="t-work" hidden>
+  <div class="page-head">
+    <span class="eyebrow">Page six &middot; SAP UCC Magdeburg, 2 October 2026</span>
+    <h2>What a day with the UCC trainers changed about the picture</h2>
+    <p class="lede">One-day online workshop, <em>Introduction to SAP Cloud Solutions &ndash; SAP Analytics Cloud</em>,
+      run by Andreas Hofstetter and Anke Thurau of SAP UCC Magdeburg. Four agenda items: components of SAC,
+      authorisation, who uses which tool, and how the SAP University Alliances curriculum is meant to be taught.
+      Everything below is from the whiteboard protocol and the slides; the originals are on the
+      <a href="uploads.html">Uploads</a> page.</p>
+  </div>
+
+  <div class="spec">
+    <div><span class="k">Trainers</span><span class="v">Hofstetter &amp; Thurau<em>SAP UCC Magdeburg, Otto von Guericke University</em></span></div>
+    <div><span class="k">When</span><span class="v">Fri 2 Oct 2026<em>09:00&ndash;16:30 CEST &middot; 12:30&ndash;20:00 IST, online</em></span></div>
+    <div><span class="k">Material</span><span class="v">3 bundles<em>Whiteboard protocol, overview deck, UA curriculum 3.0</em></span></div>
+    <div><span class="k">Why it matters</span><span class="v">Exam + teaching<em>Blueprint areas 1&ndash;3 and the delivery plan for a DGU course</em></span></div>
+  </div>
+
+  <h3 class="sec">The whiteboard: where SAC sits in a BI architecture</h3>
+  <p class="sub">Hofstetter built this live, bottom to top, over the first hour. It is the most useful single picture of the
+    day because it answers the question the exam keeps asking in different costumes: <em>which layer is responsible
+    for this?</em> The Modeler is the seam. Everything below it is the warehouse's job; everything above it is yours.</p>
+
+  <figure>
+    <div class="figbox">
+      <svg viewBox="0 0 1030 600" style="min-width:780px" role="img" aria-label="Layered BI architecture from the workshop whiteboard. From the bottom: OLTP data sources (CRM, ERP, database) are replicated into a staging layer, then an integration layer, then a reporting layer (architected data mart) and a query layer, all owned by the data warehouse (SAP BW or Datasphere). Above the query layer sits the SAC data model (Modeler), then the visualization layer (Excel integration, web reporting, dashboarding) and the information access and broadcasting layer, owned by power users and data analysts.">
+        <defs>
+          <marker id="ar6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
+          <marker id="ar6a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--accent)"/></marker>
+        </defs>
+
+        <!-- left brackets -->
+        <g font-family="Archivo, sans-serif" font-size="12" font-weight="700" style="fill:var(--accent)">
+          <rect x="22" y="36" width="150" height="196" rx="6" fill="none" style="stroke:var(--accent)" stroke-width="2"/>
+          <text x="97" y="118" text-anchor="middle">BI front-end tools</text>
+          <text x="97" y="136" text-anchor="middle" font-weight="500">SAP Analytics Cloud</text>
+          <text x="97" y="156" text-anchor="middle" font-weight="400" font-size="11" opacity=".85">+ Analysis for Office</text>
+        </g>
+        <g font-family="Archivo, sans-serif" font-size="12" font-weight="700" fill="currentColor">
+          <rect x="22" y="246" width="150" height="256" rx="6" fill="none" stroke="currentColor" stroke-width="1.6" opacity=".8"/>
+          <text x="97" y="348" text-anchor="middle">Data warehouse</text>
+          <text x="97" y="366" text-anchor="middle" font-weight="500">SAP BW /</text>
+          <text x="97" y="382" text-anchor="middle" font-weight="500">SAP Datasphere</text>
+        </g>
+
+        <!-- bands -->
+        <g font-family="Archivo, sans-serif" fill="currentColor">
+          <rect x="196" y="36" width="690" height="58" rx="5" fill="none" style="stroke:var(--accent)" stroke-width="1.6"/>
+          <text x="210" y="59" font-size="14" font-weight="700">Information access &amp; broadcasting</text>
+          <text x="210" y="80" font-size="12" opacity=".8">Broadcasting &middot; reporting portal &middot; self service</text>
+
+          <rect x="196" y="102" width="690" height="58" rx="5" fill="none" style="stroke:var(--accent)" stroke-width="1.6"/>
+          <text x="210" y="125" font-size="14" font-weight="700">Visualization / presentation layer</text>
+          <text x="210" y="146" font-size="12" opacity=".8">Excel integration (Analysis) &middot; web reporting (Story) &middot; dashboarding (Story) &mdash; built by power users</text>
+
+          <rect x="196" y="170" width="690" height="60" rx="5" style="fill:var(--accent)"/>
+          <text x="541" y="196" text-anchor="middle" font-size="15" font-weight="700" style="fill:var(--paper)">Data model &nbsp;(Modeler)</text>
+          <text x="541" y="216" text-anchor="middle" font-size="12" style="fill:var(--paper)" opacity=".9">the seam: one model per source query, dimensions, measures, authorisation</text>
+
+          <rect x="196" y="246" width="690" height="58" rx="5" fill="none" stroke="currentColor" stroke-width="1.3" opacity=".9"/>
+          <text x="210" y="269" font-size="14" font-weight="700">Query layer</text>
+          <text x="210" y="290" font-size="12" opacity=".8">Choose the analytic dimensions and filter them &rarr; a part cube (Time &times; Employee &times; Customer) &rarr; selections, calculations</text>
+
+          <rect x="196" y="312" width="690" height="58" rx="5" fill="none" stroke="currentColor" stroke-width="1.3" opacity=".9"/>
+          <text x="210" y="335" font-size="14" font-weight="700">Reporting layer &middot; architected data mart</text>
+          <text x="210" y="356" font-size="12" opacity=".8">Free pivotable analytic view, denormalised: every dimension is a key field &middot; authorisation on data level</text>
+
+          <rect x="196" y="378" width="690" height="58" rx="5" fill="none" stroke="currentColor" stroke-width="1.3" opacity=".9"/>
+          <text x="210" y="401" font-size="14" font-weight="700">Integration layer &middot; EDW transformation, corporate memory</text>
+          <text x="210" y="422" font-size="12" opacity=".8">Combine data &middot; pre-aggregate to higher levels &middot; reporting logic only, never business logic</text>
+
+          <rect x="196" y="444" width="690" height="58" rx="5" fill="none" stroke="currentColor" stroke-width="1.3" opacity=".9"/>
+          <text x="210" y="467" font-size="14" font-weight="700">Staging layer &middot; open operational data store</text>
+          <text x="210" y="488" font-size="12" opacity=".8">Detailed data as the base for later integration &middot; source-system-specific, field-based structure</text>
+
+          <!-- sources -->
+          <text x="210" y="536" font-size="11" font-weight="700" letter-spacing="1.4" opacity=".55">DATA SOURCES &middot; OLTP SYSTEMS</text>
+          <rect x="210" y="546" width="190" height="40" rx="5" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".85"/>
+          <text x="305" y="571" text-anchor="middle" font-size="12.5">CRM &nbsp;(SAP C4C)</text>
+          <rect x="446" y="546" width="190" height="40" rx="5" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".85"/>
+          <text x="541" y="571" text-anchor="middle" font-size="12.5">ERP &nbsp;(S/4HANA)</text>
+          <rect x="682" y="546" width="190" height="40" rx="5" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".85"/>
+          <text x="777" y="571" text-anchor="middle" font-size="12.5">Databases</text>
+        </g>
+
+        <!-- right arrows -->
+        <g font-family="Archivo, sans-serif" font-size="11.5" font-weight="600">
+          <line x1="930" y1="540" x2="930" y2="508" stroke="currentColor" stroke-width="2" marker-end="url(#ar6)"/>
+          <text x="944" y="528" fill="currentColor" opacity=".8">replication</text>
+
+          <line x1="930" y1="498" x2="930" y2="252" stroke="currentColor" stroke-width="2" marker-end="url(#ar6)"/>
+          <text transform="translate(946 468) rotate(-90)" fill="currentColor" opacity=".8">reporting-solution based</text>
+
+          <line x1="930" y1="228" x2="930" y2="42" style="stroke:var(--accent)" stroke-width="2.4" marker-end="url(#ar6a)"/>
+          <text transform="translate(946 226) rotate(-90)" style="fill:var(--accent)">power user / data analyst</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Redrawn from the trainer's whiteboard protocol (slide 3, built in ten stages). Left brackets mark who owns what; right arrows mark how data climbs. The green band is where SAC begins.</figcaption>
+  </figure>
+
+  <div class="callout">
+    <span class="tag">The one sentence to keep from this diagram</span>
+    <p>A live connection to BW hands SAC a <strong>BEx query</strong>, which is a slice of the query layer. SAC cannot use that
+      query directly in a story; you must create one model per query. Hofstetter said it three times, and page 3 of
+      this handbook under-sold it. The Modeler is not a convenience layer, it is the contract between the two halves.</p>
+  </div>
+
+  <h3 class="sec">The component map, with two things crossed out</h3>
+  <p class="sub">Slide 3 of the overview deck, in three rows. The trainer struck through Digital Boardroom and the classic
+    Analytics Designer on the live slide; treat the optimised story experience as the current design surface and
+    expect exam wording that speaks of stories and analytic applications in those terms.</p>
+
+  <div class="branches">
+    <div class="branch">
+      <div class="bh"><span class="bn">row 1</span><h4>Self-service &amp; distribution</h4></div>
+      <p class="bd">How finished content reaches people.</p>
+      <div class="twigs"><span class="twig">Portal</span><span class="twig">Smartphone / tablet</span><span class="twig">Distribution (scheduling)</span></div>
+    </div>
+    <div class="branch">
+      <div class="bh"><span class="bn">row 2</span><h4>Tools</h4></div>
+      <p class="bd">What a power user opens to build something.</p>
+      <div class="twigs"><span class="twig key">Story Builder &middot; stories</span><span class="twig key">Analysis, SAC edition &middot; Excel &amp; PowerPoint</span><span class="twig" style="text-decoration:line-through;opacity:.6">Digital Boardroom</span><span class="twig" style="text-decoration:line-through;opacity:.6">Analytics Designer (classic)</span></div>
+    </div>
+    <div class="branch">
+      <div class="bh"><span class="bn">row 3</span><h4>Functionalities &amp; backend</h4></div>
+      <p class="bd">What the tools stand on.</p>
+      <div class="twigs"><span class="twig key">Data model (Modeler)</span><span class="twig">Planning: functions, simulation, workflow</span><span class="twig">Predictive: Smart Insights, Smart Discovery, forecasting, Smart Predict</span><span class="twig">Monitoring</span><span class="twig">Identity management</span><span class="twig">Connections to source systems</span></div>
+    </div>
+  </div>
+
+  <h3 class="sec">Import versus live, the UCC version</h3>
+  <p class="sub">Same split as page 2, but with the two numbers and the two warnings the trainers added. These are the kind of
+    details a scenario can turn on.</p>
+  <div class="tbl-scroll">
+    <table>
+      <thead><tr><th>Import connection</th><th>Live connection</th></tr></thead>
+      <tbody>
+        <tr><td>Files in CSV format; data stored in the SAC repository</td><td>To SAP BW, S/4HANA or HANA; the transfer object is the SAP BEx query</td></tr>
+        <tr><td>Replication on demand or on a schedule</td><td>The queried data area is buffered in SAC only while the application is open and deleted when it closes</td></tr>
+        <tr><td>Encrypted storage</td><td>Encrypted transmission; logon with BW credentials or single sign-on</td></tr>
+        <tr><td><strong>Storage: 250 MB per SAC user.</strong> More only by buying additional user licences.</td><td><strong>Authentication</strong> with the UCC username; the e-mail address in Identity Management must be maintained by each student at first login.</td></tr>
+        <tr><td>Do heavy transformations in the ETL process before the file reaches SAC. Performance, not preference.</td><td>No direct use of a BEx query in the tools. One model per query, always.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sec">Excursus: account-based versus key-figure-based models</h3>
+  <p class="sub">Slide 6, and the clearest explanation of the two model types I have seen. The exam's model-type decision
+    lives here. The tables are the trainer's own example; the product names are deliberately boring.</p>
+
+  <div class="branches">
+    <div class="branch">
+      <div class="bh"><span class="bn">standard</span><h4>Account-based model</h4></div>
+      <p class="bd">A key figure is defined by a characteristic of the <em>account dimension</em>. The model holds only two physical key figures: amount and quantity. Very adaptable when the KPI portfolio is volatile, and it avoids sparse matrices, so it performs better.</p>
+      <div class="tbl-scroll" style="margin-block:8px 0"><table style="min-width:420px;font-size:13.5px">
+        <thead><tr><th>Product</th><th>Currency</th><th>Qty unit</th><th>Account</th><th>Amount</th><th>Qty</th></tr></thead>
+        <tbody>
+          <tr><td>Scanfix A100</td><td class="mono">EUR</td><td></td><td>Selling price</td><td class="mono">75</td><td></td></tr>
+          <tr><td>Scanfix A100</td><td class="mono">EUR</td><td></td><td>Purchase price</td><td class="mono">62</td><td></td></tr>
+          <tr><td>Scanfix A100</td><td></td><td class="mono">STK</td><td>Sales volume</td><td></td><td class="mono">200</td></tr>
+        </tbody></table></div>
+    </div>
+    <div class="branch">
+      <div class="bh"><span class="bn">measure-based</span><h4>Key-figure-based model</h4></div>
+      <p class="bd">Each key figure is its own field with its own currency or quantity unit. Obsolete key figures must stay in the model for consistency when things change, and there is a real risk of sparsely populated matrices, which costs performance. No geo functionality in this type.</p>
+      <div class="tbl-scroll" style="margin-block:8px 0"><table style="min-width:420px;font-size:13.5px">
+        <thead><tr><th>Product</th><th>Cur.</th><th>Unit</th><th>Selling</th><th>Purchase</th><th>Volume</th></tr></thead>
+        <tbody>
+          <tr><td>Computer mouse</td><td class="mono">EUR</td><td class="mono">STK</td><td class="mono">15</td><td class="mono">5</td><td class="mono">100</td></tr>
+          <tr><td>Scanfix A100</td><td class="mono">EUR</td><td class="mono">STK</td><td class="mono">75</td><td class="mono">62</td><td class="mono">200</td></tr>
+        </tbody></table></div>
+    </div>
+  </div>
+
+  <div class="trap" style="max-width:var(--prose)">
+    <b>Modeler restrictions the trainer wanted written down</b>
+    Some functions depend on the model type (no geo in the key-figure model) or on the connection (automatic forecast on
+    certain widgets). Descriptions of restricted and calculated key figures that contain line breaks in the BEx query must
+    be re-typed by hand in the SAC model. And the Modeler is the starting point for every SAC tool, so a wrong model type
+    is a wrong afternoon.
+  </div>
+
+  <h3 class="sec">Who builds what: the trainer's three-way split</h3>
+  <p class="sub">Slides 7, 8 and 10 draw a line the exam also draws: the Story Builder belongs to power users, the Analytics
+    Designer belongs to IT, and planning is its own curriculum.</p>
+  <div class="area">
+    <div class="area-h"><span class="an">S</span><div><h4>Story Builder &mdash; created and maintained by power users</h4><p>Uses existing models. Web reports and small dashboards. Responsive design. Widgets with predefined properties, a colour palette aligned to the corporate identity, custom widgets if needed.</p></div></div>
+    <div class="area-b">
+      <h5>Analytical possibilities named on the slide</h5>
+      <ul class="cando">
+        <li>Adapt the model into your own analysis view inside the widget (the <em>data view</em>).</li>
+        <li>Filter globally or per widget; restricted and calculated key figures; sorting; rankings; thresholds (conditional formatting).</li>
+        <li>Apply a user's selection to other widgets: linked analysis.</li>
+      </ul>
+      <p style="font-size:15px;color:var(--ink-2);margin-top:12px">Curriculum component: Story Builder exercise and Story Builder case study (page 7).</p>
+    </div>
+  </div>
+  <div class="area">
+    <div class="area-h"><span class="an">A</span><div><h4>Analytics Designer &mdash; created and maintained by IT professionals</h4><p>Complex web applications and dashboards on existing models. Responsive to screen width. Themes for global widget formatting, CSS for per-widget formatting, self-defined palettes for a consistent look.</p></div></div>
+    <div class="area-b">
+      <ul class="cando">
+        <li>Extra interaction widgets: buttons, drop-down menus, input fields, radio buttons.</li>
+        <li>Own functionality via scripts: global and local variables, start parameters passed as URL parameters, a JavaScript-like syntax with its own objects and methods.</li>
+      </ul>
+      <p style="font-size:15px;color:var(--ink-2);margin-top:12px">Curriculum component: Analytics Designer case study, aimed at information-science students.</p>
+    </div>
+  </div>
+  <div class="area">
+    <div class="area-h"><span class="an">P</span><div><h4>SAC Planning &mdash; a separate SAP UA curriculum</h4><p>Works on SAC models and on SAP BW BPC models.</p></div></div>
+    <div class="area-b">
+      <div class="twigs"><span class="twig">Data entry stored in the model</span><span class="twig">Plan versions</span><span class="twig">Simulations</span><span class="twig">Predictive planning: rolling forecast &times; simulation</span><span class="twig">Integrated planning workflow</span><span class="twig">Excel integration</span></div>
+      <p style="font-size:15px;color:var(--ink-2);margin-top:14px">Nothing hands-on on planning was in this workshop. Pages 3 and 5 still carry that half of the exam on their own; the week-3 and week-4 plan on page 1 stands.</p>
+    </div>
+  </div>
+
+  <h3 class="sec">Authorisation: five elements and one container</h3>
+  <p class="sub">Slide 13 is a graph, not a list, and the arrows are the content. Roles bundle functionalities; roles and folder
+    shares attach to either a user or a team; users belong to teams. The workspace sits on top of all of it.</p>
+
+  <figure>
+    <div class="figbox">
+      <svg viewBox="0 0 680 330" style="max-width:680px;margin:0 auto" role="img" aria-label="SAC authorisation elements. A user belongs to a team. Folder shares point to users and teams. Roles point to users and teams. Functionalities point to roles.">
+        <defs><marker id="ar6b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--accent)"/></marker></defs>
+        <g font-family="Archivo, sans-serif" font-size="13.5" font-weight="600" fill="currentColor">
+          <rect x="40" y="30" width="170" height="50" rx="7" fill="none" stroke="currentColor" stroke-width="1.4"/><text x="125" y="60" text-anchor="middle">User (identity)</text>
+          <rect x="470" y="30" width="170" height="50" rx="7" fill="none" stroke="currentColor" stroke-width="1.4"/><text x="555" y="60" text-anchor="middle">Team</text>
+          <rect x="40" y="170" width="170" height="50" rx="7" fill="none" stroke="currentColor" stroke-width="1.4"/><text x="125" y="200" text-anchor="middle">Folder shares</text>
+          <rect x="470" y="170" width="170" height="50" rx="7" fill="none" stroke="currentColor" stroke-width="1.4"/><text x="555" y="200" text-anchor="middle">Roles</text>
+          <rect x="470" y="262" width="170" height="50" rx="7" style="fill:var(--accent)"/><text x="555" y="292" text-anchor="middle" style="fill:var(--paper)">Functionalities</text>
+        </g>
+        <g style="stroke:var(--accent)" stroke-width="2" fill="none" marker-end="url(#ar6b)">
+          <line x1="212" y1="55" x2="466" y2="55"/>
+          <line x1="125" y1="168" x2="125" y2="84"/>
+          <line x1="212" y1="178" x2="470" y2="84"/>
+          <line x1="470" y1="178" x2="212" y2="84"/>
+          <line x1="555" y1="168" x2="555" y2="84"/>
+          <line x1="555" y1="260" x2="555" y2="224"/>
+        </g>
+        <g font-family="Archivo, sans-serif" font-size="11" style="fill:var(--accent)">
+          <text x="339" y="47" text-anchor="middle">is member of</text>
+          <text x="555" y="247" text-anchor="middle">bundled into</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Elements of SAC authorisation, after slide 13. Data-level security (the lock on the whiteboard) lives in the model, not here.</figcaption>
+  </figure>
+
+  <div class="deflist" style="max-width:var(--prose);margin-top:18px">
+    <div><span class="t">Workspace</span><span class="x">A container with its own folder structure, outside the regular SAC folders. Access rights are assigned <strong>at team level only</strong>; individual users cannot be assigned. Administered by workspace administrators, who do not have to be members of the authorised teams.</span></div>
+    <div><span class="t">Why bother</span><span class="x">It lets the project level become part of the authorisation system. Workspace users see only the workspace, never the general folder tree. Folder sharing stays inside the workspace's teams and users, and only with the <em>Share</em> permission.</span></div>
+  </div>
+
+  <h3 class="sec">The SAP University Alliances curriculum, and how to teach it</h3>
+  <p class="sub">Slides 19 and 20 are the delivery blueprint for a DGU course. Every module is a document; the four variants
+    are different stacks of the same documents for different audiences.</p>
+
+  <div class="callout is-good">
+    <span class="tag">The framework every variant starts from</span>
+    <p>Lecturer notes (lecturer guide), the accompanying presentation <em>Overview SAP Analytics Cloud</em>, and the
+      mandatory exercise <em>Navigation in SAP Analytics Cloud</em>. Then you add modules: SAC Modeler (case study),
+      SAC Stories (exercise), SAC Stories (case study), SAC Story Builder Advanced (case study: a sales dashboard as a web
+      application with information design, responsive layout, themes and CSS, JavaScript).</p>
+  </div>
+
+  <div class="tbl-scroll">
+    <table>
+      <thead><tr><th>Variant</th><th>Audience</th><th>Target</th><th>Modules stacked</th></tr></thead>
+      <tbody>
+        <tr><td>Introduction / overview</td><td>Business and technology students</td><td>Insight into a cloud analytics application and a rough map of what it can do</td><td>Overview presentation + Story exercise <em>presented by the lecturer</em></td></tr>
+        <tr><td>SAC Story, accompanied exercise</td><td>Business and technology students</td><td>Deeper insight into story creation and first hands-on experience</td><td>Overview presentation + Story exercise <em>hands-on by students</em></td></tr>
+        <tr><td>SAC Story, case study</td><td>Business and technology students</td><td>Autonomous creation of a story application</td><td>Overview + Story exercise + Story case study; Modeler case study as a supplement</td></tr>
+        <tr><td>SAC Analytics Designer, case study</td><td>Information-science students</td><td>A sales dashboard on a given database, responsive design and scripting, deep technical insight</td><td>Everything above + Story Builder Advanced + Modeler case study</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sec">What this changes in the plan</h3>
+  <div class="deflist" style="max-width:var(--prose)">
+    <div><span class="t">Page 1, weeks 1&ndash;2</span><span class="x">The Global Bike documents replace "build any CSV model" as the hands-on. They are sequenced, timed, and written by the people who train the trainers. Page 7 has the track.</span></div>
+    <div><span class="t">Page 3, area 2</span><span class="x">Add the account-based versus key-figure decision, the 250 MB import ceiling, and the one-model-per-BEx-query rule to the things you know cold.</span></div>
+    <div><span class="t">Page 5</span><span class="x">Fourteen new questions, filterable under <em>From the workshop</em>. Seventy in total now.</span></div>
+    <div><span class="t">Teaching at DGU</span><span class="x">The second variant, <em>SAC Story with an accompanied exercise</em>, fits a two-session elective for BBA or MBA Business Analytics without any modelling prerequisites. The third variant is the shape of a credit-bearing course.</span></div>
+  </div>
+</div>
+
+<!-- ============ PAGE 7 : GLOBAL BIKE LAB ============ -->
+<div class="page" id="p-lab" role="tabpanel" aria-labelledby="t-lab" hidden>
+  <div class="page-head">
+    <span class="eyebrow">Page seven &middot; SAP University Alliances curriculum 3.0</span>
+    <h2>The Global Bike track: four documents, one dashboard, one model</h2>
+    <p class="lede">The hands-on curriculum SAP UCC Magdeburg handed out, as a sequenced lab with a progress list that
+      remembers where you stopped. Roughly seven and a half hours of guided work on a fictitious bicycle company's
+      sales data, which is more realistic rehearsal than any CSV you would invent yourself.</p>
+  </div>
+
+  <div class="spec">
+    <div><span class="k">Tenant</span><span class="v mono" style="font-size:14px">ucc-pilot-sac.eu10.hcs.cloud.sap<em>UCC-issued user; Google Chrome only, per the trainers</em></span></div>
+    <div><span class="k">Dataset</span><span class="v">Global Bike<em>Sales orders 2007&ndash;2018 in the shared model; 2019 loaded by you</em></span></div>
+    <div><span class="k">Total time</span><span class="v">~7.5 hours<em>50 + 60 + 220 + 130 minutes, plus the challenge</em></span></div>
+    <div><span class="k">Your progress</span><span class="v" id="lab-total">0 of 42 steps<em>Saved in this browser only</em></span></div>
+  </div>
+
+  <div class="callout">
+    <span class="tag">Do them in this order, and do not skip the first one</span>
+    <p>Navigation is marked <em>mandatory</em> in the curriculum for a reason: the later documents assume you have set your
+      profile, built the home screen and made your own folder. Then the Story Builder exercise (you edit a finished
+      dashboard), then Case Study I (you build the dashboard), then Case Study II (you build the model the dashboard
+      stands on). That reverse order, consumer before builder before modeller, is deliberate and worth copying when
+      you teach.</p>
+  </div>
+
+  <h3 class="sec">Track 1 &middot; Navigation in SAP Analytics Cloud</h3>
+  <p class="sub">Case study, beginner, 22 pages. Drizi &amp; Weidner, v3.0, March 2025. Mandatory framework module.</p>
+  <div class="track" data-track="nav">
+    <div class="track-h"><span class="tt">6 steps &middot; 50 min</span><span class="tbar"><span class="tfill" style="width:0%"></span></span><span class="tpct">0%</span></div>
+    <ul class="steps">
+      <li><input type="checkbox" id="gb-nav-1"><label for="gb-nav-1"><b>Log on to SAC</b> <span class="min">10 min</span> &mdash; the UCC Identity Management link; first login forces a personal password.</label></li>
+      <li><input type="checkbox" id="gb-nav-2"><label for="gb-nav-2"><b>Make profile settings</b> <span class="min">5 min</span> &mdash; language, data formats, the e-mail address the live-connection warning on page 6 refers to.</label></li>
+      <li><input type="checkbox" id="gb-nav-3"><label for="gb-nav-3"><b>Build SAP Analytics Cloud</b> <span class="min">10 min</span> &mdash; arrange the home screen and the side navigation so Files, Modeler and Stories are one click away.</label></li>
+      <li><input type="checkbox" id="gb-nav-4"><label for="gb-nav-4"><b>Create your own folders</b> <span class="min">10 min</span> &mdash; the <em>My SAC course</em> folder with a <em>Models</em> subfolder; every later document saves into it.</label></li>
+      <li><input type="checkbox" id="gb-nav-5"><label for="gb-nav-5"><b>Share a folder</b> <span class="min">10 min &middot; optional</span> &mdash; sharing is folder-level and is the first of the five authorisation elements on page 6.</label></li>
+      <li><input type="checkbox" id="gb-nav-6"><label for="gb-nav-6"><b>Log out</b> <span class="min">5 min</span> &mdash; then read the tips: small-screen menus hide under <em>More</em>; a story exports to PDF, PowerPoint or CSV from <em>File &rarr; Export</em>; a table exports to CSV or XLSX from <em>More Actions</em>. Interactivity is lost on export.</label></li>
+    </ul>
+  </div>
+
+  <h3 class="sec">Track 2 &middot; Story Builder exercise</h3>
+  <p class="sub">Exercise, 17 pages, 60 minutes. You get a finished sales dashboard and three change requests from Alex Kuhn,
+    Vice President Marketing and Sales.</p>
+  <div class="callout is-good" style="margin-top:0">
+    <span class="tag">The brief, in Kuhn's words</span>
+    <p>"On the Sales Quantity page, I want a filter for the calendar month in addition to the filter for the year."
+      "On the Sales Revenue page, in the bar charts, exchange the Price per PC key figure with the Contribution Margin;
+      remove Price per Piece from the table." "For that bar chart, choose a different colour display."</p>
+  </div>
+  <div class="track" data-track="ex">
+    <div class="track-h"><span class="tt">7 tasks &middot; 60 min</span><span class="tbar"><span class="tfill" style="width:0%"></span></span><span class="tpct">0%</span></div>
+    <ul class="steps">
+      <li><input type="checkbox" id="gb-ex-1"><label for="gb-ex-1"><b>SAC 1 &middot; Log on</b> <span class="min">10 min</span></label></li>
+      <li><input type="checkbox" id="gb-ex-2"><label for="gb-ex-2"><b>SAC 2 &middot; Open the existing story</b> <span class="min">5 min</span> &mdash; Files &rarr; Public &rarr; Curriculum 3.0 &rarr; <em>Story (exercise, Story Builder)</em>.</label></li>
+      <li><input type="checkbox" id="gb-ex-3"><label for="gb-ex-3"><b>SAC 3 &middot; Use the story</b> <span class="min">15 min</span> &mdash; five pages: Overview (three KPIs with previous-year %, a US-state map), Timeline, Sales Quantity (click a bar to filter the table; drill the product hierarchy Country &rarr; Division &rarr; Category &rarr; Product), Sales Revenue (country filter), Detail Analysis (table).</label></li>
+      <li><input type="checkbox" id="gb-ex-4"><label for="gb-ex-4"><b>SAC 4 &middot; Copy the story</b> <span class="min">5 min</span> &mdash; into your own folder before you touch anything.</label></li>
+      <li><input type="checkbox" id="gb-ex-5"><label for="gb-ex-5"><b>SAC 5 &middot; Add a page filter</b> <span class="min">10 min</span> &mdash; calendar month on Sales Quantity. Page scope, not story scope: page 3, area 3.</label></li>
+      <li><input type="checkbox" id="gb-ex-6"><label for="gb-ex-6"><b>SAC 6 &middot; Change key figures</b> <span class="min">10 min</span> &mdash; swap Price per PC for Contribution Margin in the bar charts, drop it from the table.</label></li>
+      <li><input type="checkbox" id="gb-ex-7"><label for="gb-ex-7"><b>SAC 7 &middot; Change the colour display</b> <span class="min">5 min</span></label></li>
+    </ul>
+  </div>
+
+  <h3 class="sec">Track 3 &middot; Case Study I: Story Builder</h3>
+  <p class="sub">83 pages, 220 minutes, Hofstetter, Morelli, Thurau &amp; Weidner. Kuhn wants a sales dashboard with five pages:
+    Overview, Customer View (3 years), Product View, Most Popular Bikes 2019, Dynamic Analysis. The model is
+    <em>Global Bike (case study)</em>: a measure-based analytic model with six measures and four dimensions, revenue in
+    both global (GC) and local (LC) currency.</p>
+  <div class="track" data-track="cs1">
+    <div class="track-h"><span class="tt">20 steps &middot; 220 min</span><span class="tbar"><span class="tfill" style="width:0%"></span></span><span class="tpct">0%</span></div>
+    <ul class="steps">
+      <li><input type="checkbox" id="gb-cs1-1"><label for="gb-cs1-1"><b>1 Log on</b> <span class="min">10</span></label></li>
+      <li><input type="checkbox" id="gb-cs1-2"><label for="gb-cs1-2"><b>2 View the analytic model</b> <span class="min">15</span> &mdash; import vs live, analytic vs planning (a planning model cannot come from a live source), GC vs LC. <span class="xref">Area 2</span></label></li>
+      <li><input type="checkbox" id="gb-cs1-3"><label for="gb-cs1-3"><b>3 Create a new story</b> <span class="min">10</span></label></li>
+      <li><input type="checkbox" id="gb-cs1-4"><label for="gb-cs1-4"><b>4 Time-series chart</b> <span class="min">15</span> &mdash; Revenue GC and Costs GC across the whole data period. <span class="xref">Area 3</span></label></li>
+      <li><input type="checkbox" id="gb-cs1-5"><label for="gb-cs1-5"><b>5 Structure with a second tab</b> <span class="min">10</span></label></li>
+      <li><input type="checkbox" id="gb-cs1-6"><label for="gb-cs1-6"><b>6 Table with its own data view</b> <span class="min">15</span> &mdash; Customer View (3 years): rows, columns, sales organisations. <span class="xref">Area 4</span></label></li>
+      <li><input type="checkbox" id="gb-cs1-7"><label for="gb-cs1-7"><b>7 Filters</b> <span class="min">15</span> &mdash; a story filter and a page with page filters for Date, Sales Organization, Customer. <span class="xref">Area 3</span></label></li>
+      <li><input type="checkbox" id="gb-cs1-8"><label for="gb-cs1-8"><b>8 Heat map</b> <span class="min">10</span> &mdash; monthly quantities of the Bicycles division.</label></li>
+      <li><input type="checkbox" id="gb-cs1-9"><label for="gb-cs1-9"><b>9 Donut</b> <span class="min">10</span> &mdash; share of sales quantity by sales organisation per product category.</label></li>
+      <li><input type="checkbox" id="gb-cs1-10"><label for="gb-cs1-10"><b>10 Dynamic chart</b> <span class="min">15</span> &mdash; the end user picks the measure. <span class="xref">Area 3</span></label></li>
+      <li><input type="checkbox" id="gb-cs1-11"><label for="gb-cs1-11"><b>11 Calculated key figures</b> <span class="min">10</span> &mdash; Contribution Margin %. <span class="xref">Area 4</span></label></li>
+      <li><input type="checkbox" id="gb-cs1-12"><label for="gb-cs1-12"><b>12 Restricted key figure</b> <span class="min">10</span> &mdash; Revenue Accessories. The exact mechanism question 22 on page 5 tests. <span class="xref">Area 4</span></label></li>
+      <li><input type="checkbox" id="gb-cs1-13"><label for="gb-cs1-13"><b>13 Threshold</b> <span class="min">10</span> &mdash; Contribution Margin % turns critical at 46%. <span class="xref">Area 3</span></label></li>
+      <li><input type="checkbox" id="gb-cs1-14"><label for="gb-cs1-14"><b>14 Ranked lists</b> <span class="min">10</span> &mdash; top 5 and bottom 5 products by quantity sold.</label></li>
+      <li><input type="checkbox" id="gb-cs1-15"><label for="gb-cs1-15"><b>15 Variances</b> <span class="min">10</span> &mdash; time differences on the Product View. <span class="xref">Area 4</span></label></li>
+      <li><input type="checkbox" id="gb-cs1-16"><label for="gb-cs1-16"><b>16 Numeric points</b> <span class="min">10</span> &mdash; four KPI tiles with previous-year comparison on the Overview.</label></li>
+      <li><input type="checkbox" id="gb-cs1-17"><label for="gb-cs1-17"><b>17 Calculated characteristic</b> <span class="min">10</span> &mdash; a calculated dimension from the product category. <span class="xref">Area 4</span></label></li>
+      <li><input type="checkbox" id="gb-cs1-18"><label for="gb-cs1-18"><b>18 Measure filtering</b> <span class="min">10</span> &mdash; only bikes above a sales threshold.</label></li>
+      <li><input type="checkbox" id="gb-cs1-19"><label for="gb-cs1-19"><b>19 Linked analysis</b> <span class="min">10</span> &mdash; on Most Popular Bikes. <span class="xref">Area 3</span></label></li>
+      <li><input type="checkbox" id="gb-cs1-20"><label for="gb-cs1-20"><b>20 Share with the instructor</b> <span class="min">5 &middot; optional</span></label></li>
+    </ul>
+  </div>
+
+  <h3 class="sec">Track 4 &middot; Case Study II: Modeler</h3>
+  <p class="sub">36 pages, 130 minutes, Drizi, Weidner &amp; Hofstetter. Kuhn wants the 2007&ndash;2018 sales orders stored directly in
+    SAC, and the 2019 extract loaded on top once it exists. You design the model, load it, and test it with a simple
+    story. This is the track that maps onto the exam's first, decisive step.</p>
+  <div class="track" data-track="cs2">
+    <div class="track-h"><span class="tt">8 steps + challenge &middot; 130 min</span><span class="tbar"><span class="tfill" style="width:0%"></span></span><span class="tpct">0%</span></div>
+    <ul class="steps">
+      <li><input type="checkbox" id="gb-cs2-1"><label for="gb-cs2-1"><b>1 Log on</b> <span class="min">5</span></label></li>
+      <li><input type="checkbox" id="gb-cs2-2"><label for="gb-cs2-2"><b>2 Create the model</b> <span class="min">15</span> &mdash; Modeler &rarr; <em>Start with data</em> &rarr; file <em>Global Bike Transactional Data 2007-2018.xlsx</em>. Name it <code>### Global Bike (analytic)</code>. Switch off Planning Capabilities. <strong>After the first save the model type cannot be changed.</strong> Version is added automatically. <span class="xref">Area 2</span></label></li>
+      <li><input type="checkbox" id="gb-cs2-3"><label for="gb-cs2-3"><b>3 Date dimension</b> <span class="min">5</span> &mdash; rename Calendar_Day to Date, default hierarchy Year &rarr; Month &rarr; Day.</label></li>
+      <li><input type="checkbox" id="gb-cs2-4"><label for="gb-cs2-4"><b>4 Product dimension</b> <span class="min">15</span> &mdash; attributes and the division &rarr; category &rarr; product hierarchy. <span class="xref">Area 2</span></label></li>
+      <li><input type="checkbox" id="gb-cs2-5"><label for="gb-cs2-5"><b>5 Customer dimension</b> <span class="min">15</span></label></li>
+      <li><input type="checkbox" id="gb-cs2-6"><label for="gb-cs2-6"><b>6 Key figures</b> <span class="min">15</span> &mdash; the six measures, units, and the calculated Contribution Margin. <span class="xref">Area 2</span></label></li>
+      <li><input type="checkbox" id="gb-cs2-7"><label for="gb-cs2-7"><b>7 Load 2019 transaction data</b> <span class="min">15</span> &mdash; a second import into an existing model, the real-world shape of "data replication on demand". <span class="xref">Area 2</span></label></li>
+      <li><input type="checkbox" id="gb-cs2-8"><label for="gb-cs2-8"><b>8 Test story</b> <span class="min">30</span></label></li>
+      <li><input type="checkbox" id="gb-cs2-9"><label for="gb-cs2-9"><b>Challenge &middot; Discount % in model and in story</b> <span class="min">15</span> &mdash; build the same calculated measure twice and answer: when does it belong in the model, when in the story? (Model when several stories share it and it must be governed; story when it is one-off, or when the model is live and model-level calculations are unavailable.) <span class="xref">Area 4</span></label></li>
+    </ul>
+  </div>
+
+  <h3 class="sec">Where each track lands in the exam blueprint</h3>
+  <div class="tbl-scroll">
+    <table>
+      <thead><tr><th>Track</th><th>Blueprint areas</th><th>Rehearse with</th></tr></thead>
+      <tbody>
+        <tr><td>Navigation</td><td>1 Getting started</td><td>Page 5, questions 1&ndash;4; page 3, area 1</td></tr>
+        <tr><td>Story Builder exercise</td><td>3 Story design</td><td>Questions 15&ndash;20; filter scope ladder story &rarr; page &rarr; widget</td></tr>
+        <tr><td>Case Study I</td><td>3 Story design &middot; 4 Analysis</td><td>Questions 15&ndash;25; the restricted-measure and linked-analysis items in particular</td></tr>
+        <tr><td>Case Study II</td><td>2 Connections &amp; modeling</td><td>Questions 5&ndash;14 and the fourteen workshop questions; page 6 excursus on model types</td></tr>
+        <tr><td>Not covered</td><td>5, 6 Planning &middot; 7 Augmented</td><td>Weeks 3 and 4 on page 1 stand unchanged; SACP23 and SACP34 remain the only hands-on for planning</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <span class="tag">Reproducing it in your own tenant</span>
+    <p>The Global Bike workbook is UCC-licensed and lives on their tenant. The <em>procedure</em> is portable: any sales
+      extract with date, product, customer and a handful of measures lets you walk Case Study II step for step in the
+      free student edition, then Case Study I on top of it. Export a few thousand rows from any public dataset and
+      keep the same column roles. The muscle memory is the point, not the bicycles.</p>
+  </div>
+</div>
+
+<footer>
+  <p>
+    Compiled September 2026 from SAP's own certification page, learning journey, course material and help
+    content; extended 2 October 2026 with the whiteboard protocol and slides from the SAP UCC Magdeburg workshop
+    <em>Introduction to SAP Cloud Solutions &ndash; SAP Analytics Cloud</em> (Andreas Hofstetter, Anke Thurau) and the
+    SAP University Alliances curriculum 3.0 documents, which remain &copy; SAP UCC Magdeburg. The seven blueprint areas are as consistently reported by prep publishers &mdash; SAP does not
+    publish per-area weightings for the scenario format. Practice questions here are written to match the
+    current exam's shape and are not reproductions of any live or past paper. Verify format and fees on the
+    certification page before booking.
+  </p>
+  <div class="srcs">
+    <a href="https://learning.sap.com/certifications/sap-certified-associate-data-analyst-sap-analytics-cloud-1">C_SAC certification</a>
+    <a href="https://learning.sap.com/learning-journeys/becoming-a-certified-data-analyst-in-sap-analytics-cloud">Learning journey</a>
+    <a href="https://learning.sap.com/free-student-edition">Free student edition</a>
+    <a href="https://help.sap.com/docs/SAP_ANALYTICS_CLOUD">SAC help portal</a>
+    <a href="https://ucc.ovgu.de/">SAP UCC Magdeburg</a>
+    <a href="https://www.sap.com/about/company/university-alliances.html">SAP University Alliances</a>
+    <a href="uploads.html">Uploads</a>
+  </div>
+</footer>
+
+</div>
+
+<script>
+(function(){
+
+/* ---------- tabs ---------- */
+var tabs = Array.prototype.slice.call(document.querySelectorAll("button.tab"));
+function selectTab(tab, scroll){
+  tabs.forEach(function(t){
+    var panel = document.getElementById(t.getAttribute("aria-controls"));
+    var on = (t === tab);
+    t.setAttribute("aria-selected", on ? "true" : "false");
+    if (panel) panel.hidden = !on;
+  });
+  if (scroll !== false) window.scrollTo({top:0, behavior:"auto"});
+}
+tabs.forEach(function(tab){
+  tab.addEventListener("click", function(){
+    selectTab(tab);
+    try { history.replaceState(null, "", "#" + tab.getAttribute("aria-controls")); } catch (e) {}
+  });
+});
+/* deep links: #p-work, #p-lab, #p-qb ... */
+(function(){
+  var id = (location.hash || "").replace(/^#/, "");
+  var t = id ? document.getElementById("t-" + id.replace(/^p-/, "")) : null;
+  if (t) selectTab(t, false);
+})();
+document.addEventListener("click", function(e){
+  var g = e.target.closest ? e.target.closest("[data-go]") : null;
+  if (!g) return;
+  var t = document.getElementById(g.getAttribute("data-go"));
+  if (t) { e.preventDefault(); t.click(); }
+});
+
+/* ---------- question bank ---------- */
+var AREA = {
+  "1":"Getting started", "2":"Connections & modeling", "3":"Story design",
+  "4":"Analysis", "5":"Manual planning", "6":"Advanced planning",
+  "7":"Augmented", "S":"Scenario"
+};
+
+var Q = [
+/* ---- Area 1 ---- */
+{a:"1",q:"What is the key limitation of a dataset compared with a model?",
+ o:["Datasets cannot be used in stories","Datasets have no strictly typed dimensions and cannot be used for planning","Datasets are capped at 100,000 rows","Datasets can only be created from live connections"],c:1,
+ e:"Datasets are quick and flexible for ad-hoc analysis, but they lack the typed dimensional structure — Account, Version, Date, Organization, Generic — that planning depends on. Planning always needs a model."},
+{a:"1",q:"A business user needs a scripted, application-like interface with custom navigation and buttons. What do you build?",
+ o:["A story on a canvas page","An analytic application in Analytics Designer","A Digital Boardroom agenda","A grid page"],c:1,
+ e:"Analytics Designer produces analytic applications with scripting. Stories are the declarative option; analytic applications are the programmable one. More control, considerably more work."},
+{a:"1",q:"What is the Content Network used for?",
+ o:["Sharing stories with users outside the tenant","Importing SAP-delivered and partner business content packages and samples","Configuring the Cloud Connector","Publishing a story to the mobile app"],c:1,
+ e:"The Content Network is the delivery channel for pre-built content packages, sample content and business content into your tenant."},
+{a:"1",q:"Consumers should see only finished, approved reports rather than everyone's work in progress. Where do those reports belong?",
+ o:["The Files area","The Catalog","The Content Network","A private folder shared with all users"],c:1,
+ e:"The Catalog is the curated, published shop window for consumers. Files is the working tree where things are still being built."},
+
+/* ---- Area 2 ---- */
+{a:"2",q:"In a live connection, where does the data reside when a user opens a story?",
+ o:["Replicated into SAC storage at login","Cached in the browser only","In the source system — SAC queries it at runtime and stores no copy","In SAP Datasphere as an intermediate layer"],c:2,
+ e:"Live means no replication at all. SAC issues the query and renders the result; the data never lands in SAC. That is precisely why live satisfies data-residency requirements."},
+{a:"2",q:"Which of these is NOT possible on a live model?",
+ o:["Story-level calculations","Filtering and sorting","Data wrangling and transformation","Displaying charts and tables"],c:2,
+ e:"Wrangling and model-level calculations require import. Story-level calculations still work on live — that distinction gets tested constantly."},
+{a:"2",q:"Which live connectivity method keeps confidential data inside the corporate network, gives the best performance and supports end-to-end single sign-on?",
+ o:["Tunnel connection via Cloud Connector","Direct connection using CORS","Import connection with scheduled refresh","SAC agent connection"],c:1,
+ e:"Direct/CORS has the browser talk straight to the source. Tunnel routes through the Cloud Connector — slower, but needs no CORS configuration and works for users outside the corporate network."},
+{a:"2",q:"You need to import data from an on-premise SQL database. What infrastructure is required?",
+ o:["Cloud Connector only","Cloud Connector plus the SAP Analytics Cloud agent","CORS configuration on the database","Nothing — SQL databases connect directly"],c:1,
+ e:"Databases, universes, BW, ERP and file servers all need the SAC agent alongside the Cloud Connector. Imports from OData, S/4HANA, IBP and BPC Standard need the Cloud Connector alone."},
+{a:"2",q:"How many Account dimensions can a single model contain?",
+ o:["Unlimited","One","One per Version","Two — one for actuals, one for plan"],c:1,
+ e:"One Account dimension per model, and it is mandatory in an account model. The same one-per-model rule applies to Organization."},
+{a:"2",q:"Which dimension type allows unlimited hierarchies and multiple instances in the same model?",
+ o:["Account","Organization","Version","Generic"],c:3,
+ e:"Generic is the flexible workhorse — reach for it when data fits no other type, or when you need several dimensions of a similar kind. Account and Organization are capped at one each; Version has no hierarchies at all."},
+{a:"2",q:"Which two dimension types are system-generated and mandatory in a planning model?",
+ o:["Account and Organization","Version and Date","Generic and Date","Account and Version"],c:1,
+ e:"Planning models always get Version and Date automatically. Version holds Actual, Budget, Planning, Forecast and Rolling Forecast; Date sets the model time range and its granularity."},
+{a:"2",q:"Which properties does the Organization dimension provide automatically?",
+ o:["Currency and Person Responsible","Unit of Measure and Scale","Rate Type and Category","Parent and Child"],c:0,
+ e:"Organization ships with Currency and Person Responsible, which is exactly why it is the natural home for cost centres and profit centres — and why currency conversion leans on it."},
+{a:"2",q:"Which security model applies to a live model?",
+ o:["SAC roles only","Data Access Control defined in SAC","The source system's security","Both must be configured identically"],c:2,
+ e:"Live models inherit source-system security — SAC never holds the data, so it cannot secure it. Import models are secured inside SAC, typically with Data Access Control."},
+{a:"2",q:"Which statement about Date dimensions in a planning model is correct?",
+ o:["Only one Date dimension is allowed","Multiple Date dimensions are allowed, useful for comparing scenarios","Date dimensions cannot define granularity","Date dimensions are optional in planning models"],c:1,
+ e:"A planning model can hold more than one Date dimension, which is how you compare scenarios across different time framings. The Date dimension also fixes the granularity: years, quarters, months, weeks or days."},
+
+/* ---- Area 3 ---- */
+{a:"3",q:"Which page type reflows widgets into lanes so the story works on a phone?",
+ o:["Canvas","Responsive","Grid","Digital Boardroom"],c:1,
+ e:"Responsive is the default and the mobile-safe choice. Canvas is fixed pixel positioning; grid is the spreadsheet-like sheet."},
+{a:"3",q:"A filter must apply to every page of a story. Where do you set it?",
+ o:["Widget filter","Page filter","Story filter","Input control on page one"],c:2,
+ e:"The scope ladder runs story → page → widget. Only a story filter reaches all pages."},
+{a:"3",q:"What does linked analysis do?",
+ o:["Joins two models permanently","Makes a selection in one widget filter other widgets","Links a story to an analytic application","Creates a hyperlink between pages"],c:1,
+ e:"Linked analysis propagates a selection. You control the scope: just that widget, the whole page, or every widget on the same model."},
+{a:"3",q:"You want readers to be able to change the region themselves. What do you add?",
+ o:["A story filter","An input control","A restricted measure","Conditional formatting"],c:1,
+ e:"Input controls expose a filter to the consumer. A plain story filter is set by the designer and is not interactive."},
+{a:"3",q:"When is a canvas page the right choice over responsive?",
+ o:["Whenever the audience is on mobile","When precise fixed composition matters — a print layout or an exact design","When the story uses planning","When the model is live"],c:1,
+ e:"Canvas gives pixel control and no reflow. That is a benefit for fixed layouts and a genuine liability on small screens, so it is the wrong answer to any mobile requirement."},
+{a:"3",q:"Conditional formatting in a story is best used to:",
+ o:["Change chart type dynamically","Encode status against thresholds so exceptions read at a glance","Filter out unwanted members","Apply currency conversion"],c:1,
+ e:"It is a threshold-driven encoding of state. Colour that does not mean anything makes a story harder to read, not easier — a point worth making when you teach this."},
+
+/* ---- Area 4 ---- */
+{a:"4",q:"Which type of calculation works on both live and import models?",
+ o:["Model-level calculated measure","Story-level calculated measure","Data action advanced formula","Model-level restricted measure"],c:1,
+ e:"Model-level calculations require import. Story-level calculations work on both. If a scenario forces you onto live and still needs a calculation, this is your route."},
+{a:"4",q:"What is a restricted measure?",
+ o:["A measure only certain users can see","An existing measure limited to specified dimension members","A measure locked against editing","A measure that cannot be aggregated"],c:1,
+ e:"For example, revenue restricted to Region = North. Restricting who can see data is Data Access Control — a completely different mechanism with a confusingly similar name."},
+{a:"4",q:"Blending in a story:",
+ o:["Permanently joins two models","Links two models on common dimensions for combined analysis inside the story","Merges two versions of the same model","Imports one model into another"],c:1,
+ e:"Blending is story-scoped and needs common dimensions to link on. Neither model is changed, which is both its convenience and its performance cost."},
+{a:"4",q:"A story on a large import model loads slowly. What is the most appropriate first move?",
+ o:["Switch the model to a live connection","Reduce widgets per page, tighten filters, limit unnecessary blending","Convert all charts to tables","Add more hierarchies to the model"],c:1,
+ e:"Story performance is mostly about how much you ask for at once. Switching to live does not fix query volume and costs you transformation and model calculations along the way."},
+{a:"4",q:"What does a cross calculation do in a table?",
+ o:["Converts currency across columns","Places calculations as their own dimension so several sit side by side","Cross-joins two models","Calculates version variance automatically"],c:1,
+ e:"It is a dimension made of calculations — the clean way to show actual, plan, variance and variance percent across one table."},
+
+/* ---- Area 5 ---- */
+{a:"5",q:"Who can see a private version?",
+ o:["Everyone with read access to the model","Only its creator, unless they share it","Everyone in the same team","Only the model owner"],c:1,
+ e:"Private versions are the planner's sandbox, tied to the story and auto-saved. They can be shared read-only or editable, and publishing turns the data public."},
+{a:"5",q:"How many public Actual versions can a model have?",
+ o:["One","One per Date dimension","Unlimited","One per Organization member"],c:0,
+ e:"The system enforces a single public Actual per model. Budget, Planning and Forecast versions can exist several at a time."},
+{a:"5",q:"Which of these is NOT a version category in SAC?",
+ o:["Actual","Budget","Rolling Forecast","Baseline"],c:3,
+ e:"The five categories are Actual, Budget, Planning, Forecast and Rolling Forecast. Baseline sounds plausible, which is exactly why it makes a good distractor."},
+{a:"5",q:"What happens when you publish a private version?",
+ o:["It is copied to a new story","Its data is written into a public version and cannot be undone","It becomes read-only but stays private","It is queued for owner approval"],c:1,
+ e:"Publishing is irreversible. Publish As writes into a new public version rather than overwriting an existing one — the safer choice when you are not certain."},
+{a:"5",q:"A planner types a value at a group node of a hierarchy. What happens by default?",
+ o:["The entry is rejected","Only the group node stores the value","The value rolls down to leaf members, keeping existing proportions","All leaf members receive an equal share"],c:2,
+ e:"Rolldown distributes proportionally to the data already there. Equal distribution is a spreading option you choose deliberately, not the default."},
+{a:"5",q:"Entering +10% into a planning cell is an example of:",
+ o:["A calculated measure","Relative data entry","An advanced formula","A validation rule"],c:1,
+ e:"SAC accepts both absolute and relative entries, and supports copy-paste with aggregation on paste."},
+{a:"5",q:"What is seamless planning?",
+ o:["Planning without publishing","Planning on data federated from Datasphere or BW rather than a fully imported copy","Planning across models with a multi action","Planning that bypasses validation rules"],c:1,
+ e:"It removes the replication step between the SAP data layer and the planning model, so you plan closer to where the data already lives."},
+{a:"5",q:"A planner has unpublished changes and wants to discard them and return to the last saved state. What do they use?",
+ o:["Publish As","Revert","Fact deletion","Data locking"],c:1,
+ e:"Revert discards unpublished changes. Fact deletion is a data action step that removes facts from a model — a much bigger hammer, and not an undo."},
+
+/* ---- Area 6 ---- */
+{a:"6",q:"Which data action step moves data between two different planning models?",
+ o:["Copy","Cross-model copy","Embedded data action","Conversion"],c:1,
+ e:"Copy works within one model. Cross-model copy maps dimension members between two models, automatically or by hand."},
+{a:"6",q:"IT support costs must be distributed across departments in proportion to headcount. Which step type?",
+ o:["Copy","Advanced formulas","Allocation","Fact deletion"],c:2,
+ e:"Allocation distributes by a driver — headcount here. Advanced formulas could technically do it, but reaching for scripting when a purpose-built step exists is the wrong instinct and the exam knows it."},
+{a:"6",q:"You need a closing headcount balance computed by processing hires and terminations sequentially through periods. Which step type?",
+ o:["Copy","Advanced formulas","Allocation","Cross-model copy"],c:1,
+ e:"Sequential, period-by-period logic needs loops and conditions, which is what advanced formulas exist for. Carry-forward balances, depreciation and cash flow all land here."},
+{a:"6",q:"A multi action differs from a data action because it:",
+ o:["Only runs on private versions","Bundles several data actions and import steps into one schedulable sequence","Runs faster","Does not require the Maintain privilege"],c:1,
+ e:"Data actions operate on model data. Multi actions orchestrate — including data imports — and can be scheduled from the Calendar as a single task."},
+{a:"6",q:"What is a value driver tree for?",
+ o:["Documenting a model's dimensions","Visualising driver relationships so you can simulate scenarios and see KPI impact","Defining allowed dimension member combinations","Scheduling planning tasks"],c:1,
+ e:"Change a driver, watch the KPIs move across periods, then book the simulation back into the version if you like the result. It is a simulation tool, not documentation."},
+{a:"6",q:"Finance is closing the books. Prior-period figures must stop changing while planners keep current-period access. What do you use?",
+ o:["Validation rules","Data locking","A private version","Fact deletion"],c:1,
+ e:"Data locking freezes a slice of data. Locks can be delegated to owners and scheduled through the Calendar. Validation rules govern which member combinations are legal — a different job entirely."},
+
+/* ---- Area 7 ---- */
+{a:"7",q:"A business user wants to know why revenue dropped in a particular quarter, with no analyst available. Which feature?",
+ o:["Smart Predict","Smart Insights","Analytics Compass","Value driver tree"],c:1,
+ e:"Smart Insights explains a data point or variance statistically — what is driving this number. Smart Predict looks forward, not backward."},
+{a:"7",q:"You need to predict which customers are likely to churn. Which Smart Predict scenario type?",
+ o:["Time series","Regression","Classification","Smart Grouping"],c:2,
+ e:"Classification predicts a yes/no outcome. Regression predicts a numeric value; time series projects forward through time."},
+{a:"7",q:"Comments in SAC differ from discussions because comments:",
+ o:["Are private to the author","Attach to a data point or cell and travel with the data","Can only be added by administrators","Export to Excel automatically"],c:1,
+ e:"Comments live on the data itself. Discussions are conversations about the story, held alongside it rather than inside it."},
+
+/* ---- Scenarios ---- */
+{a:"S",q:"A manufacturing client wants a dashboard of production figures in real time. The data is in on-premise SAP HANA, a data-residency policy forbids storing production data outside the corporate network, and all users work inside that network. What do you build, and what are they giving up?",
+ e:"<b>Build:</b> a live connection to SAP HANA using the direct/CORS method. Nothing is replicated, the data never leaves the network, you get end-to-end SSO and the best performance available. <b>Giving up:</b> no data wrangling, no model-level calculations (story-level only), SAP sources only, and no planning write-back. <b>Say this out loud:</b> if they later want to blend in a non-SAP source or clean the data, that needs import — which reopens the residency conversation rather than being a configuration change."},
+{a:"S",q:"Marketing wants to combine a Salesforce CSV export with S/4HANA revenue, clean up inconsistent product names, and report on both together. What is your approach?",
+ e:"<b>Import, not live</b> — live cannot wrangle and cannot reach non-SAP sources, so it is ruled out twice over. Import both sources, use data wrangling to standardise the product names, then either model them together or blend the two models in the story on the common Product and Date dimensions. <b>Name the trade-off:</b> the data is only as fresh as the last refresh, so agree a refresh schedule that matches how the reports will be used."},
+{a:"S",q:"Finance needs to plan next year's budget against this year's actuals, with planners typing numbers in directly. What do you build?",
+ e:"A <b>planning model on an import connection</b> — write-back is impossible on a live model, which decides the architecture before anything else. The model automatically gets Version and Date dimensions. Load actuals into the public Actual version, create a Budget version, add Organization for cost centres and Account for the P&amp;L lines, then build a planning-enabled story so planners can enter values."},
+{a:"S",q:"Three planners want to try different assumptions without anyone seeing half-finished numbers, then agree on one.",
+ e:"Each works in their own <b>private version</b> — sandboxed, auto-saved, visible only to them unless they share it. Compare the three, then <b>publish</b> the agreed one into a public Budget version, or use <b>Publish As</b> to create a new public version rather than overwriting an existing one. Warn them: publishing cannot be undone."},
+{a:"S",q:"The CFO wants IT support costs, currently sitting in one cost centre, spread across all departments in proportion to headcount — rerun every month.",
+ e:"An <b>allocation step</b> inside a data action, with headcount as the driver. For the monthly rerun: if fresh headcount has to be imported first, wrap the import and the allocation in a <b>multi action</b> and schedule that from the <b>Calendar</b>. A data action alone cannot pull the import in."},
+{a:"S",q:"During month-end close, prior-period plan data keeps getting edited by accident.",
+ e:"<b>Data locking</b> on the closed periods for the relevant versions. Delegate lock ownership to the finance owner rather than keeping it with an administrator, and schedule the lock through the Calendar so it applies automatically at close instead of relying on someone remembering."},
+{a:"S",q:"Planners keep entering sales figures for products that a particular region does not stock.",
+ e:"<b>Validation rules</b> defining which Product and Region combinations are legal. Be explicit about why this is not data locking: locking stops edits to a slice of data, validation stops impossible combinations from being entered at all. Different problem, different tool."},
+{a:"S",q:"A group with subsidiaries in India, Germany and the US needs consolidated reporting in EUR.",
+ e:"Set up a <b>currency conversion table</b> holding rates by date and rate category. The <b>Organization</b> dimension supplies each entity's local currency through its built-in Currency property. Convert either with a <b>conversion step</b> in a data action or with currency conversion in the story. State which rate type applies where — closing rate for balance-sheet measures, average for flows — because getting that wrong is a real-world audit finding, not just an exam point."},
+{a:"S",q:"A story built on a 40-million-row import model takes 30 seconds to open. Diagnose it.",
+ e:"<b>Start with the story, not the model.</b> Usual causes: too many widgets on the first page, widgets with no filters, heavy blending, and hierarchies expanded by default. Fixes: story-level filters, fewer widgets per page, remove unnecessary blends, collapse hierarchies by default. <b>Then the model:</b> trim unused dimensions and hierarchies. <b>Not a fix:</b> switching to live — it removes capability without reducing the query volume."},
+{a:"S",q:"The business wants a rolling 18-month view combining recent actuals with forward projections, refreshed each month.",
+ e:"Use the <b>Rolling Forecast</b> version category — that is exactly what it is for. A data action carries actuals forward into the forecast horizon each month and resets the projection window. Automate the monthly roll with a <b>multi action</b> scheduled in the Calendar so it does not depend on anyone doing it by hand."},
+{a:"S",q:"Head office needs one model, but each regional manager must see and edit only their own region.",
+ e:"<b>Data Access Control</b> on the model, granting read and write per member of the Region dimension. One model, one story, filtered per user by their DAC assignment. <b>Wrong answers worth naming:</b> separate models per region (unmaintainable, and breaks consolidated reporting), and story filters — which hide data but secure nothing, since a user can change them."},
+{a:"S",q:"In a meeting, an executive asks what the top five products by margin were last quarter. Nobody has that chart.",
+ e:"<b>Just Ask</b> — natural-language query, answered on the spot as a table or chart. Older material calls this Search to Insight; same feature, current name is Just Ask, and it works in English, German, French, Italian and Spanish. If the follow-up is why margin fell, that is <b>Smart Insights</b>."},
+{a:"S",q:"A retailer wants to forecast weekly demand per store for the next 13 weeks.",
+ e:"<b>Smart Predict, time series scenario</b>, trained on historical weekly demand. Regression would predict a value from other variables rather than projecting forward through time; classification answers a yes/no question. If the forecast should feed budgeting, write the predictive results into a planning model version so the numbers live where planners work."},
+{a:"S",q:"Explain to a sceptical CFO why SAC is worth having when the company already owns Power BI.",
+ e:"<b>Concede the overlap:</b> on pure BI they are comparable, and saying otherwise costs you credibility. <b>The difference is planning.</b> Power BI reads; SAC reads and writes. Versions, data actions, allocations, data locking, validation rules and a planning calendar are built in, so budgeting lives in the same tool as the reporting instead of in a parallel spreadsheet estate nobody trusts. Add native governance on SAP sources and live connections that leave data in place. <b>Be honest about the flip side:</b> SAC's modelling is stricter and its visualisation library is narrower. A CFO who hears only upside stops listening."},
+/* ---- From the SAP UCC workshop, 2 October 2026 ---- */
+{a:"2",w:1,q:"In an account-based model, how many physical key figures does the model hold, regardless of how many KPIs the business reports?",
+ o:["One per KPI, each with its own unit","Two: amount and quantity, with the account dimension carrying the KPI meaning","Unlimited, as long as each has a currency","One, because everything is an amount"],c:1,
+ e:"The account-based model defines a key figure through a characteristic of the account dimension, so the model needs only amount and quantity. That is why it adapts well to a volatile KPI portfolio and avoids sparse matrices. The trainer's table: three rows for Scanfix A100 with Selling price, Purchase price and Sales volume as account members."},
+{a:"2",w:1,q:"Which drawback belongs to the key-figure-based (measure-based) model rather than the account-based one?",
+ o:["It cannot hold currency units","Obsolete key figures must be kept for consistency and the matrix tends to become sparse","It cannot be used in stories","It is limited to two measures"],c:1,
+ e:"Each key figure is its own field with its own unit. When the KPI set changes, old fields stay for consistency, and a product with many empty measures produces a sparsely populated matrix with poorer performance. The trainer also noted the key-figure model has no geo functionality."},
+{a:"2",w:1,q:"A live connection to SAP BW is in place. What is the transfer object SAC consumes, and how many models does it imply?",
+ o:["An InfoProvider; one model can serve many queries","A BEx query; one model per query, created in the Modeler","A CompositeProvider; models are optional","An HDI container; stories read it directly"],c:1,
+ e:"The SAP BW object for the transfer is the SAP BEx query. SAC tools cannot use the query directly; creating a model per BEx query is mandatory. The queried data area is buffered while the application is open and deleted when it closes."},
+{a:"2",w:1,q:"An import-connection model built from a large CSV is slow to refresh and to query. Where did the trainers say the transformation work should have happened?",
+ o:["In story calculations after import","In the ETL process before the file reaches SAC","In the Modeler after the first save","In a second model blended at story level"],c:1,
+ e:"Because of SAC's performance characteristics with import connections, necessary transformations should be carried out as part of the ETL process before importing. The Modeler's wrangling is for light fixes, not heavy restructuring. Related ceiling: 250 MB of SAC storage per user, extendable only through additional user licences."},
+{a:"2",w:1,q:"You load a sales extract from Excel into a new model and intend to analyse history only. What must you do before the first save, and why before?",
+ o:["Add a Version dimension manually; it is required","Switch off Planning Capabilities; after the first save the model type cannot be changed","Set the currency table; it locks on save","Nothing; the type can be toggled at any time"],c:1,
+ e:"Case Study II is explicit: deactivate the Planning Capabilities switch under Model Preferences, check it is colourless, then save. After the first save the type is fixed. Version is added to every model automatically, planning or not, because SAC is also a planning tool."},
+{a:"2",w:1,q:"Which of these cannot be created from a live data source?",
+ o:["An analytic model","A story","A planning model","A calculated measure at story level"],c:2,
+ e:"Analytic models can be consumed with live data. Planning models cannot be created from a live source because planning writes back into SAC-held data. Same fact as question 6 from a different angle; scenarios love this one."},
+{a:"1",w:1,q:"A workspace administrator in SAC wants to grant a single colleague access to the workspace. What happens?",
+ o:["Access is granted immediately at user level","It is not possible; workspace access is assigned exclusively at team level","It works only if the colleague already has the Share permission","It works only through a folder share"],c:1,
+ e:"A workspace is a container with its own folder structure outside the regular SAC folders, and access rights are assigned exclusively at team level. Put the colleague in a team. Workspace administrators themselves do not have to be members of the authorised teams."},
+{a:"1",w:1,q:"Which element of SAC authorisation is bundled into roles?",
+ o:["Teams","Folder shares","Functionalities","Workspaces"],c:2,
+ e:"Functionalities are grouped into roles; roles are then assigned to users or to teams. Folder shares are a separate element that also points at users or teams. A user is a member of a team. Five elements, four arrows."},
+{a:"1",w:1,q:"Users of a workspace open SAC and look for the general folder structure. What do they see?",
+ o:["Everything, filtered by their role","Only the contents of the workspace","The general tree in read-only mode","Only the Catalog"],c:1,
+ e:"Users of a workspace can only see the contents of the workspace, not the general folder structure. Folder sharing stays inside the teams and users authorised in the workspace, and only if the Share permission is available. This is how the project level enters the authorisation system."},
+{a:"3",w:1,q:"Per the trainers, which statement correctly contrasts the Story Builder and the Analytics Designer?",
+ o:["Both are maintained by IT; the difference is chart types","Stories are created and maintained by power users; analytic applications by IT professionals, with scripting, CSS and URL start parameters","The Analytics Designer cannot use existing models","Stories cannot be responsive"],c:1,
+ e:"Story Builder: existing models, web reports and small dashboards, responsive design, widgets with predefined properties, built by power users. Analytics Designer: complex web applications, themes plus CSS, additional interaction widgets, global and local variables, URL parameters, JavaScript-like scripting, built by IT. SAP has since folded the designer's capabilities into the optimised story experience, which is why the trainer crossed the classic designer out."},
+{a:"4",w:1,q:"Case Study II ends by asking you to build the calculated measure Discount % twice, once in the model and once in the story. When does the model win?",
+ o:["Always; story calculations are deprecated","When several stories share the measure and it must be governed centrally","When the model is live","When the measure uses a time variance"],c:1,
+ e:"Several stories can sit on one model, so a measure defined in the model is calculated once, named once and secured once. The story-level version is right for a one-off, or when the model is live and model-level calculations are not available. The challenge question is the exam's question."},
+{a:"2",w:1,q:"On the trainer's architecture whiteboard, which layer sits immediately below the SAC data model, and who owns it?",
+ o:["The staging layer, owned by the source systems","The query layer, owned by the data warehouse (SAP BW or Datasphere)","The visualization layer, owned by power users","The integration layer, owned by IT security"],c:1,
+ e:"Bottom to top: data sources, staging, integration, reporting (architected data mart), query, then the SAC data model, then visualization, then information access and broadcasting. Everything from staging to query is the warehouse's responsibility; from the Modeler up it is the power user's. The query layer is where dimensions are chosen and filtered into a part cube."},
+{a:"5",w:1,q:"Which planning capability did the trainers list that connects forecasting to simulation?",
+ o:["Data locking","Predictive planning, as the interaction between rolling forecast and simulation","Currency conversion","Value driver trees"],c:1,
+ e:"The SAC Planning slide listed data entry stored in the model, plan versions, simulations, predictive planning as rolling forecast meets simulation, an integrated planning workflow and Excel integration, on SAC models and SAP BW BPC models. Planning has its own SAP UA curriculum; nothing hands-on on it was in this workshop."},
+{a:"S",w:1,q:"DGU wants a two-session SAC elective for BBA students with no data background. Using the SAP UA curriculum, what do you deliver and what do you leave out?",
+ e:"<b>Variant 2, SAC Story with an accompanied exercise:</b> the overview presentation, then the Navigation exercise (mandatory framework), then the Story Builder exercise done hands-on by the students on the UCC tenant. Sixty minutes of guided edits to a finished dashboard is the right size for a first contact. <b>Leave out</b> the Story Builder case study (220 minutes, needs autonomy), the Modeler case study, and anything from the Analytics Designer variant, which the curriculum reserves for information-science students. <b>If a third session appears,</b> add Case Study I and let them build the dashboard they edited; that is variant 3 and the shape of a credit-bearing course."}
+];
+
+var list = document.getElementById("qlist");
+var counter = document.getElementById("qcount");
+var chips = Array.prototype.slice.call(document.querySelectorAll(".fchip"));
+var LETTERS = ["A","B","C","D"];
+
+function esc(s){ return s; }
+
+function build(){
+  var html = "";
+  Q.forEach(function(item, i){
+    var isScen = (item.a === "S");
+    var tag = isScen ? "Scenario" : AREA[item.a];
+    var opts = "";
+    if (item.o) {
+      opts = "<ul class=\"opts\">";
+      item.o.forEach(function(o, oi){
+        opts += "<li><span>" + LETTERS[oi] + "</span>" + esc(o) + "</li>";
+      });
+      opts += "</ul>";
+    }
+    var correct = "";
+    if (item.o) {
+      correct = "<div class=\"correct\"><span>" + LETTERS[item.c] + "</span><span>" + esc(item.o[item.c]) + "</span></div>";
+    } else {
+      correct = "<div class=\"correct\"><span>Model answer</span></div>";
+    }
+    html += "<details class=\"q\" data-area=\"" + item.a + "\" data-w=\"" + (item.w ? "1" : "0") + "\">" +
+      "<summary>" +
+        "<span class=\"qn\">" + (i + 1 < 10 ? "0" : "") + (i + 1) + "</span>" +
+        "<span class=\"qtext\">" + esc(item.q) + opts + "</span>" +
+        "<span class=\"qtags\"><span class=\"qtag" + (isScen ? " scen" : "") + "\">" + tag + "</span>" + (item.w ? "<span class=\"qtag ucc\">UCC workshop</span>" : "") + "</span>" +
+      "</summary>" +
+      "<div class=\"ans\">" + correct + "<p class=\"why\">" + item.e + "</p></div>" +
+    "</details>";
+  });
+  list.innerHTML = html;
+}
+
+function applyFilter(f){
+  var shown = 0;
+  Array.prototype.slice.call(list.children).forEach(function(el){
+    var area = el.getAttribute("data-area");
+    var on = (f === "all") || (area === f) || (f === "W" && el.getAttribute("data-w") === "1");
+    el.hidden = !on;
+    if (on) shown++;
+  });
+  counter.textContent = shown + " of " + Q.length + " shown";
+}
+
+chips.forEach(function(chip){
+  chip.addEventListener("click", function(){
+    chips.forEach(function(c){ c.setAttribute("aria-pressed", c === chip ? "true" : "false"); });
+    applyFilter(chip.getAttribute("data-f"));
+  });
+});
+
+build();
+applyFilter("all");
+
+/* ---------- Global Bike lab progress (this browser only) ---------- */
+(function(){
+  var KEY = "sac-handbook-globalbike-progress";
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('#p-lab .steps input[type="checkbox"]'));
+  var total = document.getElementById("lab-total");
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { saved = {}; }
+  boxes.forEach(function(b){ if (saved[b.id]) b.checked = true; });
+  function paint(){
+    var done = 0;
+    boxes.forEach(function(b){ if (b.checked) done++; });
+    if (total) total.firstChild.nodeValue = done + " of " + boxes.length + " steps";
+    Array.prototype.slice.call(document.querySelectorAll("#p-lab .track")).forEach(function(tr){
+      var bs = Array.prototype.slice.call(tr.querySelectorAll('input[type="checkbox"]'));
+      var d = bs.filter(function(b){ return b.checked; }).length;
+      var pct = bs.length ? Math.round(100 * d / bs.length) : 0;
+      var fill = tr.querySelector(".tfill"), pctEl = tr.querySelector(".tpct");
+      if (fill) fill.style.width = pct + "%";
+      if (pctEl) pctEl.textContent = pct + "%";
+    });
+  }
+  boxes.forEach(function(b){
+    b.addEventListener("change", function(){
+      var s = {};
+      boxes.forEach(function(x){ if (x.checked) s[x.id] = 1; });
+      try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) {}
+      paint();
+    });
+  });
+  paint();
+})();
+
+})();
+</script>
+
+</body>
+</html>

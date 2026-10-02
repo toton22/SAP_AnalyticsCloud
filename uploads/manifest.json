@@ -1,0 +1,325 @@
+{
+  "generated": "2026-10-02T16:41:18+00:00",
+  "root": "uploads",
+  "collections": [
+    {
+      "id": "2026-10-02-sap-ucc-sac-workshop",
+      "title": "SAP UCC SAC Workshop",
+      "date": "2026-10-02",
+      "count": 31,
+      "bytes": 29439068
+    }
+  ],
+  "files": [
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/workshop-notes.md",
+      "name": "workshop-notes.md",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "",
+      "ext": "md",
+      "kind": "notes",
+      "size": 7657,
+      "modified": "2026-10-02T16:30:03+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/overview-slides/slide-02-agenda.png",
+      "name": "slide-02-agenda.png",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "overview-slides",
+      "ext": "png",
+      "kind": "image",
+      "size": 89538,
+      "modified": "2026-10-02T16:28:41+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/overview-slides/slide-03-components-of-sac.png",
+      "name": "slide-03-components-of-sac.png",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "overview-slides",
+      "ext": "png",
+      "kind": "image",
+      "size": 83659,
+      "modified": "2026-10-02T16:28:41+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/overview-slides/slide-04-import-vs-live-connection.png",
+      "name": "slide-04-import-vs-live-connection.png",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "overview-slides",
+      "ext": "png",
+      "kind": "image",
+      "size": 80262,
+      "modified": "2026-10-02T16:28:41+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/overview-slides/slide-05-sac-modeler-restrictions.png",
+      "name": "slide-05-sac-modeler-restrictions.png",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "overview-slides",
+      "ext": "png",
+      "kind": "image",
+      "size": 80282,
+      "modified": "2026-10-02T16:28:42+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/overview-slides/slide-06-account-vs-key-figure-model.png",
+      "name": "slide-06-account-vs-key-figure-model.png",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "overview-slides",
+      "ext": "png",
+      "kind": "image",
+      "size": 85288,
+      "modified": "2026-10-02T16:28:41+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/overview-slides/slide-07-story-builder.png",
+      "name": "slide-07-story-builder.png",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "overview-slides",
+      "ext": "png",
+      "kind": "image",
+      "size": 79824,
+      "modified": "2026-10-02T16:28:41+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/overview-slides/slide-08-analytics-designer.png",
+      "name": "slide-08-analytics-designer.png",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "overview-slides",
+      "ext": "png",
+      "kind": "image",
+      "size": 84315,
+      "modified": "2026-10-02T16:28:42+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/overview-slides/slide-10-sac-planning.png",
+      "name": "slide-10-sac-planning.png",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "overview-slides",
+      "ext": "png",
+      "kind": "image",
+      "size": 42023,
+      "modified": "2026-10-02T16:28:42+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/overview-slides/slide-13-authorisation-elements.png",
+      "name": "slide-13-authorisation-elements.png",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "overview-slides",
+      "ext": "png",
+      "kind": "image",
+      "size": 54289,
+      "modified": "2026-10-02T16:28:42+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/overview-slides/slide-15-sac-workspace.png",
+      "name": "slide-15-sac-workspace.png",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "overview-slides",
+      "ext": "png",
+      "kind": "image",
+      "size": 53498,
+      "modified": "2026-10-02T16:28:41+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/overview-slides/slide-19-curriculum-modules.png",
+      "name": "slide-19-curriculum-modules.png",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "overview-slides",
+      "ext": "png",
+      "kind": "image",
+      "size": 189847,
+      "modified": "2026-10-02T16:28:42+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/overview-slides/slide-20-curriculum-variants.png",
+      "name": "slide-20-curriculum-variants.png",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "overview-slides",
+      "ext": "png",
+      "kind": "image",
+      "size": 91673,
+      "modified": "2026-10-02T16:28:41+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/ucc-curriculum-3.0/02_Intro_to_SAC_Using_Global_Bike_Navigation_en.pdf",
+      "name": "02_Intro_to_SAC_Using_Global_Bike_Navigation_en.pdf",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "ucc-curriculum-3.0",
+      "ext": "pdf",
+      "kind": "doc",
+      "size": 1918141,
+      "modified": "2026-10-02T16:28:40+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/ucc-curriculum-3.0/02_Intro_to_SAC_Using_Global_Bike_Navigation_en_v3.0.docx",
+      "name": "02_Intro_to_SAC_Using_Global_Bike_Navigation_en_v3.0.docx",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "ucc-curriculum-3.0",
+      "ext": "docx",
+      "kind": "doc",
+      "size": 2014889,
+      "modified": "2026-10-02T16:28:40+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/ucc-curriculum-3.0/03_Intro_to_SAC_Using_Global_Bike_Exercise_en_v3.0.docx",
+      "name": "03_Intro_to_SAC_Using_Global_Bike_Exercise_en_v3.0.docx",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "ucc-curriculum-3.0",
+      "ext": "docx",
+      "kind": "doc",
+      "size": 2592184,
+      "modified": "2026-10-02T16:28:40+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/ucc-curriculum-3.0/03_Intro_to_SAC_Using_Global_Bike_Exercise_en_v3.0.pdf",
+      "name": "03_Intro_to_SAC_Using_Global_Bike_Exercise_en_v3.0.pdf",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "ucc-curriculum-3.0",
+      "ext": "pdf",
+      "kind": "doc",
+      "size": 1718472,
+      "modified": "2026-10-02T16:28:40+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/ucc-curriculum-3.0/04a_Intro_to_SAC_using_Global_Bike_Case_StudyI_en_v3.0.docx",
+      "name": "04a_Intro_to_SAC_using_Global_Bike_Case_StudyI_en_v3.0.docx",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "ucc-curriculum-3.0",
+      "ext": "docx",
+      "kind": "doc",
+      "size": 4999107,
+      "modified": "2026-10-02T16:28:40+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/ucc-curriculum-3.0/04a_Intro_to_SAC_using_Global_Bike_Case_StudyI_en_v3.0.pdf",
+      "name": "04a_Intro_to_SAC_using_Global_Bike_Case_StudyI_en_v3.0.pdf",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "ucc-curriculum-3.0",
+      "ext": "pdf",
+      "kind": "doc",
+      "size": 8035884,
+      "modified": "2026-10-02T16:28:40+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/ucc-curriculum-3.0/04b_Intro_to_SAC_using_Global_Bike_Case_StudyII_en_v3.0.docx",
+      "name": "04b_Intro_to_SAC_using_Global_Bike_Case_StudyII_en_v3.0.docx",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "ucc-curriculum-3.0",
+      "ext": "docx",
+      "kind": "doc",
+      "size": 2066822,
+      "modified": "2026-10-02T16:28:40+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/ucc-curriculum-3.0/04b_Intro_to_SAC_using_Global_Bike_Case_StudyII_en_v3.0.pdf",
+      "name": "04b_Intro_to_SAC_using_Global_Bike_Case_StudyII_en_v3.0.pdf",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "ucc-curriculum-3.0",
+      "ext": "pdf",
+      "kind": "doc",
+      "size": 3752330,
+      "modified": "2026-10-02T16:28:40+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/whiteboard-protocol/01-architecture-empty-layers.png",
+      "name": "01-architecture-empty-layers.png",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "whiteboard-protocol",
+      "ext": "png",
+      "kind": "image",
+      "size": 80365,
+      "modified": "2026-10-02T16:28:43+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/whiteboard-protocol/02-staging-layer.png",
+      "name": "02-staging-layer.png",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "whiteboard-protocol",
+      "ext": "png",
+      "kind": "image",
+      "size": 100591,
+      "modified": "2026-10-02T16:28:43+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/whiteboard-protocol/03-integration-layer.png",
+      "name": "03-integration-layer.png",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "whiteboard-protocol",
+      "ext": "png",
+      "kind": "image",
+      "size": 121880,
+      "modified": "2026-10-02T16:28:43+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/whiteboard-protocol/04-reporting-layer-authorisation.png",
+      "name": "04-reporting-layer-authorisation.png",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "whiteboard-protocol",
+      "ext": "png",
+      "kind": "image",
+      "size": 126263,
+      "modified": "2026-10-02T16:28:44+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/whiteboard-protocol/05-query-layer-part-cube.png",
+      "name": "05-query-layer-part-cube.png",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "whiteboard-protocol",
+      "ext": "png",
+      "kind": "image",
+      "size": 135311,
+      "modified": "2026-10-02T16:28:42+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/whiteboard-protocol/06-selections-and-calculation.png",
+      "name": "06-selections-and-calculation.png",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "whiteboard-protocol",
+      "ext": "png",
+      "kind": "image",
+      "size": 134177,
+      "modified": "2026-10-02T16:28:44+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/whiteboard-protocol/07-visualization-layer.png",
+      "name": "07-visualization-layer.png",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "whiteboard-protocol",
+      "ext": "png",
+      "kind": "image",
+      "size": 147920,
+      "modified": "2026-10-02T16:28:43+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/whiteboard-protocol/08-data-model-modeler-seam.png",
+      "name": "08-data-model-modeler-seam.png",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "whiteboard-protocol",
+      "ext": "png",
+      "kind": "image",
+      "size": 150309,
+      "modified": "2026-10-02T16:28:44+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/whiteboard-protocol/09-excel-web-dashboarding.png",
+      "name": "09-excel-web-dashboarding.png",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "whiteboard-protocol",
+      "ext": "png",
+      "kind": "image",
+      "size": 161226,
+      "modified": "2026-10-02T16:28:43+00:00"
+    },
+    {
+      "path": "2026-10-02-sap-ucc-sac-workshop/whiteboard-protocol/10-information-access-broadcasting.png",
+      "name": "10-information-access-broadcasting.png",
+      "collection": "2026-10-02-sap-ucc-sac-workshop",
+      "group": "whiteboard-protocol",
+      "ext": "png",
+      "kind": "image",
+      "size": 161042,
+      "modified": "2026-10-02T16:28:43+00:00"
+    }
+  ]
+}

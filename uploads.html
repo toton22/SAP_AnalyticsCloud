@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Drop folder for the SAC Certification Handbook. Anything added to uploads/ in the repository is listed here automatically.">
+<title>SAC Handbook Uploads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+/* Layout: one column of collections; each collection is a dated section with a card grid. Same tokens as index.html. */
+:root{
+  --paper:#F5F5F1; --surface:#FFFFFF; --surface-2:#EBEBE4;
+  --ink:#16211F; --ink-2:#55625E; --ink-3:#8B948F;
+  --line:#DCDCD3; --line-strong:#C3C4B9;
+  --accent:#0D6B63; --accent-wash:#E4EFEB;
+  --warn:#8F4F16; --warn-wash:#F6EADC;
+  --ok:#2C6B3C; --ok-wash:#E4EFE4;
+  --f-display:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --f-body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --wrap:1120px; --prose:70ch;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F1817; --surface:#16221F; --surface-2:#1E2C28;
+    --ink:#E9E9E1; --ink-2:#9CA9A4; --ink-3:#6B7873;
+    --line:#293633; --line-strong:#3A4844;
+    --accent:#57BCAB; --accent-wash:#13302B;
+    --warn:#DFA054; --warn-wash:#2D2415;
+    --ok:#6FBE7E; --ok-wash:#172C1C; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F1817; --surface:#16221F; --surface-2:#1E2C28;
+  --ink:#E9E9E1; --ink-2:#9CA9A4; --ink-3:#6B7873;
+  --line:#293633; --line-strong:#3A4844;
+  --accent:#57BCAB; --accent-wash:#13302B;
+  --warn:#DFA054; --warn-wash:#2D2415;
+  --ok:#6FBE7E; --ok-wash:#172C1C; color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding-inline:24px}
+@media (max-width:640px){.wrap{padding-inline:18px}}
+h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.16;letter-spacing:-.012em}
+p{margin:0}
+a{color:var(--accent);text-underline-offset:3px;text-decoration-thickness:1px}
+code,.mono{font-family:var(--f-mono);font-size:.86em}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+.eyebrow{font-family:var(--f-display);font-size:11.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3)}
+img{max-width:100%}
+
+.masthead{padding-block:40px 22px}
+.mast-row{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:baseline;justify-content:space-between;margin-bottom:16px}
+.chip-code{font-family:var(--f-mono);font-size:12px;font-weight:500;padding:3px 8px;border-radius:4px;background:var(--accent-wash);color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 22%,transparent)}
+h1{font-size:clamp(34px,6vw,54px);font-weight:700;letter-spacing:-.03em;margin-bottom:14px}
+.standfirst{font-size:clamp(17px,2.2vw,19.5px);color:var(--ink-2);max-width:64ch}
+.standfirst strong{color:var(--ink);font-weight:600}
+.backlink{font-family:var(--f-display);font-size:14px;font-weight:500;text-decoration:none;display:inline-flex;gap:6px;align-items:center}
+.backlink:hover{text-decoration:underline}
+
+.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-block:26px 10px}
+.how > div{background:var(--surface);border:1px solid var(--line);border-top:2px solid var(--accent);border-radius:0 0 7px 7px;padding:16px 18px}
+.how .hn{font-family:var(--f-mono);font-size:11.5px;color:var(--accent);margin-bottom:6px}
+.how h3{font-size:15.5px;font-weight:600;margin-bottom:6px}
+.how p{font-size:14.5px;color:var(--ink-2);line-height:1.5}
+
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-block:26px 10px;padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:8px;position:sticky;top:env(safe-area-inset-top,0px);z-index:10}
+.tools .lbl{font-family:var(--f-display);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.fchip{font-family:var(--f-display);font-size:12.5px;font-weight:500;padding:5px 11px;border-radius:5px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink-2);cursor:pointer}
+.fchip:hover{color:var(--ink)}
+.fchip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface);font-weight:600}
+.search{font-family:var(--f-display);font-size:14px;padding:7px 11px;border:1px solid var(--line-strong);border-radius:6px;background:var(--paper);color:var(--ink);min-width:0;flex:1 1 180px}
+.count{font-family:var(--f-mono);font-size:12.5px;color:var(--ink-3);margin-left:auto;font-variant-numeric:tabular-nums;white-space:nowrap}
+.status{font-family:var(--f-display);font-size:13px;color:var(--ink-3);margin-block:6px 0;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.status .dot{width:7px;height:7px;border-radius:50%;background:var(--ok);display:inline-block}
+.status .dot.pending{background:var(--warn)}
+
+.coll{margin-top:38px}
+.coll-h{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:18px}
+.coll-h h2{font-size:clamp(21px,3vw,27px);font-weight:600}
+.coll-h .meta{font-family:var(--f-mono);font-size:12.5px;color:var(--ink-3);display:flex;gap:14px;flex-wrap:wrap}
+.coll-h .date{font-family:var(--f-mono);font-size:12px;color:var(--accent);display:block;margin-bottom:4px}
+.group-h{font-family:var(--f-display);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:22px 0 10px;display:flex;gap:10px;align-items:baseline}
+.group-h span{font-family:var(--f-mono);font-weight:400;letter-spacing:0;text-transform:none;color:var(--ink-3)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.card.is-new{outline:2px solid var(--warn);outline-offset:-2px}
+.thumb{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top left;background:var(--surface-2);border-bottom:1px solid var(--line);cursor:zoom-in}
+.glyph{aspect-ratio:16/10;display:grid;place-items:center;background:var(--surface-2);border-bottom:1px solid var(--line);font-family:var(--f-display);font-weight:700;font-size:22px;letter-spacing:.06em;color:var(--ink-2);position:relative}
+.glyph::after{content:attr(data-kind);position:absolute;bottom:8px;right:10px;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.glyph.k-doc{color:var(--warn)} .glyph.k-notes{color:var(--accent)} .glyph.k-sheet{color:var(--ok)}
+.cbody{padding:12px 14px 13px;display:flex;flex-direction:column;gap:6px;flex:1}
+.cname{font-family:var(--f-display);font-size:14px;font-weight:600;line-height:1.35;word-break:break-word}
+.cname a{text-decoration:none;color:var(--ink)}
+.cname a:hover{text-decoration:underline}
+.cmeta{font-family:var(--f-mono);font-size:11.5px;color:var(--ink-3);display:flex;gap:10px;flex-wrap:wrap;font-variant-numeric:tabular-nums}
+.cacts{display:flex;gap:8px;margin-top:auto;padding-top:4px}
+.btn{font-family:var(--f-display);font-size:12.5px;font-weight:600;padding:5px 10px;border-radius:5px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink-2);text-decoration:none;cursor:pointer}
+.btn:hover{color:var(--ink);border-color:var(--ink-3)}
+.btn.primary{background:var(--accent-wash);color:var(--accent);border-color:color-mix(in srgb,var(--accent) 30%,transparent)}
+.newtag{font-family:var(--f-display);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--warn);background:var(--warn-wash);padding:2px 6px;border-radius:4px}
+
+.empty{border:1px dashed var(--line-strong);border-radius:8px;padding:28px 24px;max-width:var(--prose);color:var(--ink-2);margin-top:30px;background:var(--surface)}
+.empty h3{font-size:18px;font-weight:600;margin-bottom:8px;color:var(--ink)}
+.empty code{background:var(--surface-2);padding:1px 5px;border-radius:4px}
+.empty ol{margin:10px 0 0;padding-left:20px;font-size:15.5px}
+
+dialog{border:0;border-radius:10px;padding:0;background:var(--surface);color:var(--ink);max-width:min(96vw,1240px);width:auto;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(10,14,13,.72)}
+.lb{display:flex;flex-direction:column;max-height:92vh}
+.lb img{display:block;max-width:100%;max-height:78vh;object-fit:contain;background:var(--surface-2)}
+.lb-bar{display:flex;gap:10px;align-items:center;padding:10px 14px;border-top:1px solid var(--line);font-family:var(--f-display);font-size:13.5px}
+.lb-bar .nm{font-weight:600;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+.lb-bar .mono{color:var(--ink-3)}
+.md{padding:28px 30px;max-width:min(96vw,860px);max-height:88vh;overflow:auto;font-size:16px;line-height:1.6}
+.md h1{font-size:26px;margin-bottom:12px}.md h2{font-size:20px;margin:26px 0 8px}.md h3{font-size:17px;margin:20px 0 6px}
+.md p{margin:0 0 12px}.md ul,.md ol{margin:0 0 12px;padding-left:22px}.md li{margin-bottom:3px}
+.md table{border-collapse:collapse;width:100%;font-size:14.5px;margin:10px 0 16px;display:block;overflow-x:auto}
+.md th,.md td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.md th{font-family:var(--f-display);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);background:var(--surface-2)}
+.md code{background:var(--surface-2);padding:1px 5px;border-radius:4px}
+.md-bar{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:10px 16px;border-bottom:1px solid var(--line);font-family:var(--f-display);font-size:13.5px}
+
+footer{padding-block:34px 60px;border-top:1px solid var(--line);color:var(--ink-3);font-size:14.5px;max-width:var(--prose);margin-top:60px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="mast-row">
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      <span class="eyebrow">Drop folder</span>
+      <span class="chip-code">uploads/ &middot; self-updating</span>
+    </div>
+    <a class="backlink" href="index.html">&larr; Back to the handbook</a>
+  </div>
+  <h1>Uploads</h1>
+  <p class="standfirst">
+    Everything in the repository's <strong>uploads/</strong> folder, listed by itself. Add a file on GitHub or
+    push one from your machine; the manifest rebuilds and this page follows. Screenshots open full size,
+    notes open inline, documents download.
+  </p>
+
+  <div class="how">
+    <div><div class="hn">step 1</div><h3>Drop the file in</h3><p>On GitHub: <em>uploads/ &rarr; Add file &rarr; Upload files</em>. Or copy it locally and push. A folder named <code>YYYY-MM-DD-what-it-was</code> keeps a session together.</p></div>
+    <div><div class="hn">step 2</div><h3>The Action rebuilds the index</h3><p>A GitHub Action notices the push, runs <code>scripts/build_manifest.py</code> and commits <code>uploads/manifest.js</code> back. About a minute.</p></div>
+    <div><div class="hn">step 3</div><h3>This page updates</h3><p>GitHub Pages redeploys and the new file appears here, grouped by session. On github.io the page also checks the repository tree, so a file shows as <em>pending</em> even before the Action finishes.</p></div>
+  </div>
+</header>
+
+<div class="tools" id="tools">
+  <span class="lbl">Show</span>
+  <button class="fchip" data-k="all" aria-pressed="true" type="button">All</button>
+  <button class="fchip" data-k="image" aria-pressed="false" type="button">Screenshots &amp; images</button>
+  <button class="fchip" data-k="doc" aria-pressed="false" type="button">Documents</button>
+  <button class="fchip" data-k="notes" aria-pressed="false" type="button">Notes</button>
+  <button class="fchip" data-k="slides" aria-pressed="false" type="button">Slides</button>
+  <button class="fchip" data-k="other" aria-pressed="false" type="button">Everything else</button>
+  <input class="search" id="search" type="search" placeholder="Search file names&hellip;" aria-label="Search file names">
+  <span class="count" id="count"></span>
+</div>
+<div class="status" id="status"></div>
+
+<main id="list"></main>
+
+<div class="empty" id="empty" hidden>
+  <h3>Nothing listed yet</h3>
+  <p>The page could not find <code>uploads/manifest.js</code>. Two ways to fix that:</p>
+  <ol>
+    <li>Push the repository to GitHub with the workflow in <code>.github/workflows/</code>; the first push that touches <code>uploads/</code> builds the manifest.</li>
+    <li>Locally: run <code>python scripts/build_manifest.py</code> once, then reload.</li>
+  </ol>
+</div>
+
+<footer>
+  <p>Part of the SAC Certification Handbook. The manifest lists path, size and the date of the last commit that touched each file. Material from SAP UCC Magdeburg is provided to SAP University Alliances members; keep it out of public repositories.</p>
+</footer>
+</div>
+
+<dialog id="lightbox" aria-label="Image preview">
+  <div class="lb">
+    <img id="lb-img" alt="">
+    <div class="lb-bar">
+      <button class="btn" type="button" id="lb-prev" aria-label="Previous image">&larr;</button>
+      <button class="btn" type="button" id="lb-next" aria-label="Next image">&rarr;</button>
+      <span class="nm" id="lb-name"></span>
+      <span class="mono" id="lb-pos"></span>
+      <a class="btn" id="lb-open" href="#" target="_blank" rel="noopener">Open file</a>
+      <button class="btn" type="button" id="lb-close">Close</button>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="mdbox" aria-label="Note preview">
+  <div class="md-bar"><span id="md-name" style="font-weight:600"></span><span style="display:flex;gap:8px"><a class="btn" id="md-open" href="#" target="_blank" rel="noopener">Open raw</a><button class="btn" type="button" id="md-close">Close</button></span></div>
+  <div class="md" id="md-body"></div>
+</dialog>
+
+<script src="uploads/manifest.js"></script>
+<script>
+(function(){
+var M = window.UPLOADS_MANIFEST || null;
+var list = document.getElementById("list"), empty = document.getElementById("empty");
+var count = document.getElementById("count"), status = document.getElementById("status");
+var chips = Array.prototype.slice.call(document.querySelectorAll(".fchip"));
+var search = document.getElementById("search");
+var ROOT = (M && M.root) || "uploads";
+var state = { kind:"all", q:"" };
+var images = [];
+
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+function fmtBytes(n){ if(n<1024) return n+" B"; if(n<1048576) return (n/1024).toFixed(0)+" KB"; return (n/1048576).toFixed(1)+" MB"; }
+function fmtDate(iso){ if(!iso) return ""; var d=new Date(iso); if(isNaN(d)) return iso.slice(0,10); return d.toISOString().slice(0,10); }
+function glyphFor(f){
+  var e=(f.ext||"").toUpperCase(); if(e.length>4) e=e.slice(0,4);
+  return e || "FILE";
+}
+function kindBucket(k){ return (k==="image"||k==="doc"||k==="notes"||k==="slides") ? k : "other"; }
+function prettyGroup(g){ return g.replace(/[-_]+/g," ").replace(/\b(sap|ucc|sac|ua)\b/gi, function(m){return m.toUpperCase();}); }
+
+function cardHTML(f, idx){
+  var href = ROOT + "/" + f.path.split("/").map(encodeURIComponent).join("/");
+  var top, acts;
+  if (f.kind === "image") {
+    images.push({src:href, name:f.name});
+    top = '<img class="thumb" loading="lazy" decoding="async" src="'+href+'" alt="'+esc(f.name)+'" data-img="'+(images.length-1)+'">';
+    acts = '<button class="btn primary" type="button" data-img="'+(images.length-1)+'">View</button><a class="btn" href="'+href+'" target="_blank" rel="noopener">Open</a>';
+  } else {
+    top = '<div class="glyph k-'+esc(f.kind)+'" data-kind="'+esc(f.kind)+'">'+esc(glyphFor(f))+'</div>';
+    if (f.kind === "notes" && location.protocol !== "file:") {
+      acts = '<button class="btn primary" type="button" data-md="'+href+'" data-name="'+esc(f.name)+'">Read</button><a class="btn" href="'+href+'" target="_blank" rel="noopener">Raw</a>';
+    } else {
+      acts = '<a class="btn primary" href="'+href+'" target="_blank" rel="noopener">Open</a><a class="btn" href="'+href+'" download>Download</a>';
+    }
+  }
+  return '<div class="card'+(f.pending?' is-new':'')+'" data-kind="'+kindBucket(f.kind)+'" data-name="'+esc(f.name.toLowerCase())+'">'+
+    top+
+    '<div class="cbody">'+
+      '<div class="cname"><a href="'+href+'" target="_blank" rel="noopener">'+esc(f.name)+'</a></div>'+
+      '<div class="cmeta"><span>'+(f.size?fmtBytes(f.size):"")+'</span><span>'+fmtDate(f.modified)+'</span>'+(f.pending?'<span class="newtag">pending</span>':'')+'</div>'+
+      '<div class="cacts">'+acts+'</div>'+
+    '</div></div>';
+}
+
+function render(){
+  images = [];
+  if (!M || !M.files || !M.files.length) { empty.hidden = false; list.innerHTML = ""; count.textContent=""; return; }
+  empty.hidden = true;
+  var byColl = {};
+  M.files.forEach(function(f){ (byColl[f.collection] = byColl[f.collection] || []).push(f); });
+  var colls = (M.collections || []).slice();
+  Object.keys(byColl).forEach(function(id){ if(!colls.some(function(c){return c.id===id;})) colls.push({id:id,title:id||"Loose files",date:null}); });
+  var html = "";
+  colls.forEach(function(c){
+    var files = byColl[c.id] || []; if(!files.length) return;
+    var bytes = files.reduce(function(a,f){return a+(f.size||0);},0);
+    html += '<section class="coll" data-coll="'+esc(c.id)+'"><div class="coll-h"><div>'+(c.date?'<span class="date">'+esc(c.date)+'</span>':'')+'<h2>'+esc(c.title)+'</h2></div>'+
+      '<div class="meta"><span>'+files.length+' files</span><span>'+fmtBytes(bytes)+'</span>'+(c.id?'<span>'+esc(ROOT+"/"+c.id)+'/</span>':'')+'</div></div>';
+    var groups = {}; var order = [];
+    files.forEach(function(f){ var g=f.group||""; if(!(g in groups)){groups[g]=[];order.push(g);} groups[g].push(f); });
+    order.forEach(function(g){
+      if (g) html += '<div class="group-h">'+esc(prettyGroup(g))+' <span>'+groups[g].length+'</span></div>';
+      html += '<div class="grid">' + groups[g].map(cardHTML).join("") + '</div>';
+    });
+    html += '</section>';
+  });
+  list.innerHTML = html;
+  applyFilter();
+}
+
+function applyFilter(){
+  var shown = 0, total = 0;
+  Array.prototype.slice.call(list.querySelectorAll(".card")).forEach(function(el){
+    total++;
+    var on = (state.kind==="all" || el.getAttribute("data-kind")===state.kind) && (!state.q || el.getAttribute("data-name").indexOf(state.q)>=0);
+    el.hidden = !on; if(on) shown++;
+  });
+  Array.prototype.slice.call(list.querySelectorAll(".coll")).forEach(function(sec){
+    var any = sec.querySelectorAll(".card:not([hidden])").length > 0; sec.hidden = !any;
+    Array.prototype.slice.call(sec.querySelectorAll(".group-h")).forEach(function(gh){
+      var grid = gh.nextElementSibling; var g = grid && grid.querySelectorAll(".card:not([hidden])").length>0; gh.hidden = !g; if(grid) grid.hidden = !g;
+    });
+  });
+  count.textContent = shown + " of " + total + " files";
+}
+
+chips.forEach(function(chip){ chip.addEventListener("click", function(){
+  chips.forEach(function(c){ c.setAttribute("aria-pressed", c===chip?"true":"false"); });
+  state.kind = chip.getAttribute("data-k"); applyFilter();
+});});
+search.addEventListener("input", function(){ state.q = search.value.trim().toLowerCase(); applyFilter(); });
+
+/* ---- lightbox ---- */
+var lb = document.getElementById("lightbox"), lbImg = document.getElementById("lb-img"), lbName=document.getElementById("lb-name"), lbPos=document.getElementById("lb-pos"), lbOpen=document.getElementById("lb-open");
+var cur = 0;
+function showImg(i){ if(!images.length) return; cur=(i+images.length)%images.length; lbImg.src=images[cur].src; lbImg.alt=images[cur].name; lbName.textContent=images[cur].name; lbPos.textContent=(cur+1)+" / "+images.length; lbOpen.href=images[cur].src; if(!lb.open) lb.showModal(); }
+document.getElementById("lb-prev").addEventListener("click", function(){ showImg(cur-1); });
+document.getElementById("lb-next").addEventListener("click", function(){ showImg(cur+1); });
+document.getElementById("lb-close").addEventListener("click", function(){ lb.close(); });
+lb.addEventListener("click", function(e){ if(e.target===lb) lb.close(); });
+document.addEventListener("keydown", function(e){ if(!lb.open) return; if(e.key==="ArrowLeft") showImg(cur-1); if(e.key==="ArrowRight") showImg(cur+1); });
+
+/* ---- tiny markdown for notes ---- */
+var md = document.getElementById("mdbox"), mdBody=document.getElementById("md-body"), mdName=document.getElementById("md-name"), mdOpen=document.getElementById("md-open");
+document.getElementById("md-close").addEventListener("click", function(){ md.close(); });
+md.addEventListener("click", function(e){ if(e.target===md) md.close(); });
+function inline(s){
+  s = esc(s);
+  s = s.replace(/`([^`]+)`/g,"<code>$1</code>").replace(/\*\*([^*]+)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*]+)\*/g,"$1<em>$2</em>");
+  s = s.replace(/\[([^\]]+)\]\((https?:[^)]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
+  return s;
+}
+function renderMd(src){
+  var lines = src.replace(/\r/g,"").split("\n"), out=[], i=0;
+  while(i<lines.length){
+    var l=lines[i];
+    if(/^\s*$/.test(l)){ i++; continue; }
+    var h=l.match(/^(#{1,3})\s+(.*)$/); if(h){ out.push("<h"+h[1].length+">"+inline(h[2])+"</h"+h[1].length+">"); i++; continue; }
+    if(/^\|/.test(l)){ var rows=[]; while(i<lines.length && /^\|/.test(lines[i])){ rows.push(lines[i]); i++; }
+      var cells=function(r){ return r.replace(/^\||\|$/g,"").split("|").map(function(c){return c.trim();}); };
+      var head=cells(rows[0]); var body=rows.slice(2);
+      out.push("<table><thead><tr>"+head.map(function(c){return "<th>"+inline(c)+"</th>";}).join("")+"</tr></thead><tbody>"+
+        body.map(function(r){ return "<tr>"+cells(r).map(function(c){return "<td>"+inline(c)+"</td>";}).join("")+"</tr>"; }).join("")+"</tbody></table>"); continue; }
+    if(/^\s*[-*]\s+/.test(l)){ var items=[]; while(i<lines.length && /^\s*[-*]\s+/.test(lines[i])){ items.push(lines[i].replace(/^\s*[-*]\s+/,"")); i++; } out.push("<ul>"+items.map(function(x){return "<li>"+inline(x)+"</li>";}).join("")+"</ul>"); continue; }
+    if(/^\s*\d+\.\s+/.test(l)){ var oi=[]; while(i<lines.length && /^\s*\d+\.\s+/.test(lines[i])){ oi.push(lines[i].replace(/^\s*\d+\.\s+/,"")); i++; } out.push("<ol>"+oi.map(function(x){return "<li>"+inline(x)+"</li>";}).join("")+"</ol>"); continue; }
+    if(/^```/.test(l)){ var code=[]; i++; while(i<lines.length && !/^```/.test(lines[i])){ code.push(lines[i]); i++; } i++; out.push("<pre><code>"+esc(code.join("\n"))+"</code></pre>"); continue; }
+    var para=[]; while(i<lines.length && !/^\s*$/.test(lines[i]) && !/^(#{1,3}\s|\||\s*[-*]\s|\s*\d+\.\s|```)/.test(lines[i])){ para.push(lines[i]); i++; }
+    out.push("<p>"+inline(para.join(" "))+"</p>");
+  }
+  return out.join("\n");
+}
+list.addEventListener("click", function(e){
+  var t = e.target.closest("[data-img],[data-md]"); if(!t) return;
+  if (t.hasAttribute("data-img")) { e.preventDefault(); showImg(parseInt(t.getAttribute("data-img"),10)); return; }
+  var href=t.getAttribute("data-md"); mdName.textContent=t.getAttribute("data-name"); mdOpen.href=href; mdBody.innerHTML="<p>Loading&hellip;</p>"; md.showModal();
+  fetch(href).then(function(r){ return r.text(); }).then(function(txt){ mdBody.innerHTML = renderMd(txt); }).catch(function(){ mdBody.innerHTML="<p>Could not load the note here. Use <em>Open raw</em>.</p>"; });
+});
+
+/* ---- status line + live check against the GitHub tree (github.io only) ---- */
+function setStatus(txt, pending){ status.innerHTML = '<span class="dot'+(pending?' pending':'')+'"></span>'+txt; }
+if (M) setStatus("Manifest built " + (M.generated ? fmtDate(M.generated) : "") + " &middot; " + M.files.length + " files");
+else setStatus("No manifest found", true);
+
+(function liveCheck(){
+  var h = location.hostname; if(!/\.github\.io$/.test(h) || !M) return;
+  var owner = h.split(".")[0]; var seg = location.pathname.split("/").filter(Boolean);
+  var repo = (seg.length && seg[0] && !/\.html?$/.test(seg[0])) ? seg[0] : owner + ".github.io";
+  fetch("https://api.github.com/repos/"+owner+"/"+repo+"/git/trees/HEAD?recursive=1").then(function(r){ return r.ok ? r.json() : null; }).then(function(t){
+    if(!t || !t.tree) return;
+    var known = {}; M.files.forEach(function(f){ known[ROOT+"/"+f.path]=1; });
+    var extra = t.tree.filter(function(n){ return n.type==="blob" && n.path.indexOf(ROOT+"/")===0 && !known[n.path] && !/\/(manifest\.js|manifest\.json|README\.md|\.gitkeep)$/.test(n.path) && !/\/[._][^/]*$/.test(n.path); });
+    if(!extra.length) return;
+    extra.forEach(function(n){
+      var rel = n.path.slice(ROOT.length+1), parts = rel.split("/"), name = parts[parts.length-1], ext = name.indexOf(".")>=0 ? name.split(".").pop().toLowerCase() : "";
+      var kind = /^(png|jpe?g|gif|webp|svg|avif)$/.test(ext)?"image":/^(pdf|docx?|odt|rtf)$/.test(ext)?"doc":/^(md|txt|markdown)$/.test(ext)?"notes":/^(pptx?|key|odp)$/.test(ext)?"slides":"other";
+      M.files.push({path:rel,name:name,collection:parts.length>1?parts[0]:"",group:parts.length>2?parts[1]:"",ext:ext,kind:kind,size:n.size||0,modified:"",pending:true});
+    });
+    render();
+    setStatus(extra.length+" new file"+(extra.length>1?"s":"")+" found in the repository that the manifest has not caught up with yet (the Action usually takes about a minute)", true);
+  }).catch(function(){});
+})();
+
+render();
+})();
+</script>
+</body>
+</html>
